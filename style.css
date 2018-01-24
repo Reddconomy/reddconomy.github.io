@@ -103,3 +103,104 @@ footer{
     font-size:0.7em;
     position :relative;
 }
+
+label.snapshot{
+    color:#f00;
+}
+
+span.debug{
+    color: #f00;
+
+}
+
+span.stable{
+    color: #0f0;
+
+}
+
+span.test{
+    color: #00f;
+
+}
+span.testnet{
+    color:#f00;
+}
+
+table.servers{
+    border-spacing: 0;
+    margin:auto;
+    border:0.1em solid #cecece;
+    text-align:center;
+    width:100%;
+}
+
+table.servers tr:nth-child(2) td{
+    border-top:0.1em solid #cecece;
+
+}
+
+table.servers  tr td{
+    border-left:0.1em solid #cecece;
+    border-bottom:0.1em solid #cecece;
+
+    padding:1em;
+
+    white-space: nowrap;
+}
+
+table.servers  tr td:first-child{
+    border-left:none;
+
+}
+
+
+
+span.mods{
+    color:yellow;
+ 
+}
+
+.bold{
+    text-shadow:
+    -0.05em -0.05em 0.01em #707070,  
+    0.05em -0.05em 0.01em #707070,
+     -0.05em 0.05em 0.01em #707070,
+     0.05em 0.05em 0.01em #707070;
+    font-weight: bold;
+}
+
+.status .online::before{
+    content: '\25FC';
+    color:#0f0;
+    
+}
+
+.status .offline::before{
+    content: '\25FB';
+}
+
+
+/**
+Server details
+**/
+table.servers  tr.details{
+
+    display:none;
+    width:100%;
+    text-align:left;
+    font-family:monospace;
+}
+
+table.servers  tr.details td{
+    padding:0;
+    margin:0;
+    border-bottom:0.1em groove #cecece;
+}
+
+table.servers  tr.details td .players{
+    font-weight: bold;
+}
+table.servers  tr.details td .bold{
+    text-shadow: none;
+
+}

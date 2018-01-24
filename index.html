@@ -5,17 +5,18 @@
     <meta charset="utf-8" />
     <title>Reddconomy ~ Reddcoin economy for Minecraft</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
 </head>
 
-<body onload="if(location.hash==='')location.hash='About'">
+<body onload="main()">
     <a href="#About" id="tohome"></a>
     <header>
         <img src="header.jpg" title="Reddcoin + Minecraft = Reddconomy" alt="Reddcoin + Minecraft = Reddconomy" />
     </header>
     <nav>
         <a href="#About">#About</a>
-        <a href="#TestServers">#TestServer</a>
-        <a href="#Download">#Download</a>
+        <a href="#PublicServers">#PublicServers</a>
+        <a href="https://github.com/Reddconomy/Reddconomy/">#Download</a>
     </nav>
     <article id="About">
         <h1>Reddconomy</h1>
@@ -40,54 +41,59 @@
             pharetra id cong
         </p>
     </article>
-    <article id="TestServers">
-        <h1>Reddconomy ~ TestServers</h1>
+    <article id="PublicServers">
+        <h1>Reddconomy ~ Public Servers</h1>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sodales urna. In id lectus ut mi feugiat mattis vel ut diam.
-            Suspendisse congue rutrum suscipit. Duis metus sapien, hendrerit vitae consequat eu, ultricies sed eros. Mauris
-            maximus eu libero at ultricies. Maecenas at libero vitae ante tempor semper. Curabitur egestas velit risus, sed
-            laoreet augue imperdiet id. Mauris sed consequat ipsum, a accumsan purus. In feugiat a sapien id vehicula. Aliquam
-            ullamcorper elementum neque, in eleifend tortor. Morbi at nunc cursus, hendrerit sem quis, malesuada urna. Ut
-            quis diam et arcu malesuada pulvinar vitae sed mauris. Ut dapibus, nibh vel pellentesque fermentum, lorem orci
-            ultricies turpis, eget egestas nibh felis viverra justo. Praesent id lobortis libero. Curabitur at ipsum at libero
-            tempus lobortis non eget ipsum. Etiam mi purus, vestibulum sed dignissim vel, placerat eu dolor. Vivamus sed
-            ullamcorper ipsum. Mauris sit amet consectetur felis. Nulla volutpat bibendum mollis. Pellentesque augue nisi,
-            vulputate vel imperdiet in, posuere eu turpis. Vivamus vel ante lectus. Proin pharetra felis id convallis faucibus.
-            Nunc condimentum laoreet tellus, sit amet laoreet lectus venenatis at. Duis vulputate eros tincidunt arcu venenatis
-            facilisis. In leo lorem, rhoncus sit amet aliquam ut, sollicitudin quis neque. Pellentesque habitant morbi tristique
-            senectus et netus et malesuada fames ac turpis egestas. Integer dictum arcu at pretium viverra. Donec efficitur
-            rhoncus ultricies. Ut et ipsum vitae augue pretium semper dapibus eget mauris. Maecenas semper massa non ante
-            porttitor faucibus. Morbi augue mauris, lacinia nec nisi at, gravida posuere ipsum. Nullam vehicula luctus massa
-            et varius. In est elit, eleifend nec diam in, vestibulum pellentesque elit. Aliquam erat volutpat. Ut consectetur,
-            turpis vitae consectetur fermentum, mi augue finibus leo, a commodo erat arcu quis sapien. Vestibulum massa mauris,
-            pharetra id cong
+            <h3>Legend</h3>
+            <ul>
+                <li>VERSION
+                    <ul>
+                        <li><label class='snapshot bold'>SNAPSHOT</label>: The server automatically updates to the latest source code</li>
+                    </ul>
+                </li>
+                <li>TYPE
+                        <ul>
+                            <li><span class='debug bold'>DEBUG</span>: Debug servers are temporary server used to run untested and sometimes unreleased code and should be considered very unstable</li>
+                            <li><span class='test bold'>TEST</span>: Test servers are temporary servers used to test reddconomy public releases</li>
+                            <li><span class='stable bold'>GAME</span>/<span class='vanilla bold'>vanilla</span>: Normal minecraft servers that uses reddconomy.</li>
+                            <li><span class='stable bold'>GAME</span>/<span class='mods bold'>mods</span>: Modded minecraft servers that uses reddconomy.</li>
+
+                        </ul>
+                    </li>
+                    <li>COIN
+                            <ul>
+                                <li>*/<span class='testnet bold'>testnet</span>: The server uses testnet coins. Testnet coins works exactly like real coins but have no value and are usually much easier to obtain.</li>                                
+                            </ul>
+                        </li>
+            </ul>
+            <h3>Servers</h3>
+
+            <table class="servers">
+                <tr>
+                    <th>IP</th><th>VERSION</th><th>TYPE</th><th>COIN</th><th>STATUS</th>
+                </tr>
+                <tr class='server'>
+                    <td>sponge.soxa.it:25565</td>
+                    <td><label class='snapshot bold'>SNAPSHOT:</label> <a target="_blank" href="http://github.com/Reddconomy/Reddconomy">Reddconomy/master</a></td>
+                    <td><span class='test bold'>TEST</span></td>
+                    <td>DOGECOIN/<span class='testnet bold'>testnet</span></td>
+                    <td class='status'><a href=""  title="Can't load status...">[?]</a></td>
+                </tr>
+                <tr class='details'> <td colspan=5></td></tr>
+
+                <tr class='server'>
+                    <td>reddconomy.frk.wf:25567</td>
+                    <td><label class='snapshot bold'>SNAPSHOT:</label> <a target="_blank" href="https://git.frk.wf/riccardoblb/Reddconomy/src/rblb">frk:Reddconomy/rblb</a></td>
+                    <td><span class='debug bold'>DEBUG</span></td>
+                    <td>DOGECOIN/<span class='testnet bold'>testnet</span></td>
+                    <td class='status'><a href="" title="Can't load status...">[?]</a></td>
+                </tr>
+                <tr class='details' > <td colspan=5></td></tr>
+                
+            </table>
         </p>
     </article>
-    <article id="Download">
-        <h1>Reddconomy ~ Download</h1>
-        <p>
-            <div class="embedfile">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sodales urna. In id lectus ut mi feugiat mattis vel ut diam.
-                Suspendisse congue rutrum suscipit. Duis metus sapien, hendrerit vitae consequat eu, ultricies sed eros.
-                Mauris maximus eu libero at ultricies. Maecenas at libero vitae ante tempor semper. Curabitur egestas velit
-                risus, sed laoreet augue imperdiet id. Mauris sed consequat ipsum, a accumsan purus. In feugiat a sapien
-                id vehicula. Aliquam ullamcorper elementum neque, in eleifend tortor. Morbi at nunc cursus, hendrerit sem
-                quis, malesuada urna. Ut quis diam et arcu malesuada pulvinar vitae sed mauris. Ut dapibus, nibh vel pellentesque
-                fermentum, lorem orci ultricies turpis, eget egestas nibh felis viverra justo. Praesent id lobortis libero.
-                Curabitur at ipsum at libero tempus lobortis non eget ipsum. Etiam mi purus, vestibulum sed dignissim vel,
-                placerat eu dolor. Vivamus sed ullamcorper ipsum. Mauris sit amet consectetur felis. Nulla volutpat bibendum
-                mollis. Pellentesque augue nisi, vulputate vel imperdiet in, posuere eu turpis. Vivamus vel ante lectus.
-                Proin pharetra felis id convallis faucibus. Nunc condimentum laoreet tellus, sit amet laoreet lectus venenatis
-                at. Duis vulputate eros tincidunt arcu venenatis facilisis. In leo lorem, rhoncus sit amet aliquam ut, sollicitudin
-                quis neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                Integer dictum arcu at pretium viverra. Donec efficitur rhoncus ultricies. Ut et ipsum vitae augue pretium
-                semper dapibus eget mauris. Maecenas semper massa non ante porttitor faucibus. Morbi augue mauris, lacinia
-                nec nisi at, gravida posuere ipsum. Nullam vehicula luctus massa et varius. In est elit, eleifend nec diam
-                in, vestibulum pellentesque elit. Aliquam erat volutpat. Ut consectetur, turpis vitae consectetur fermentum,
-                mi augue finibus leo, a commodo erat arcu quis sapien. Vestibulum massa mauris, pharetra id cong
-            </div>
-        </p>
-    </article>
+    
 
     <footer>Copyright (c) 2018 - Riccardo Balbo, Simone Cervino</footer>
 </body>
