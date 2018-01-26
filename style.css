@@ -89,7 +89,7 @@ article{
     overflow: hidden;
 }
 
-article:target{
+article:target,article.target{
     position:relative;
     visibility: visible;
     height:auto;
@@ -251,3 +251,21 @@ section h4{
 @keyframes blink {  
     50% { opacity: 0; }
   }
+#qr {
+    text-align:center;
+}
+#qr .qrcode {
+    margin-bottom:2em;
+}
+#qr .qrcode table{
+    margin:auto;
+}
+
+.disclaimer{
+    margin:1em;
+    border:0.03em solid #000;
+    padding:1em;
+    font-style: italic;
+    font-size:0.8em;
+    display:inline-block;
+}
