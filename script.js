@@ -65,5 +65,8 @@ function main() {
     console.log("Start");
     if(location.hash==='')location.hash='About'
     updateStatus();
-    setInterval(updateStatus,6000);   
+    setInterval(updateStatus, 6000);   
+    window.onhashchange = function () {
+        window.scrollTo(0, 0);
+    };
 }
