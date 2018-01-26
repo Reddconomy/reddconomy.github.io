@@ -4,11 +4,38 @@
 <head>
     <meta charset="utf-8" />
     <title>Reddconomy ~ Reddcoin economy for Minecraft</title>
+    <style>
+        #loading{
+            position:fixed;
+            z-index:90;
+            top:0;
+            left:0;
+            color:#fff;
+            background-color:rgba(0,0,0,0.8);
+            width:100%;
+            height:100%;
+            font-size:10em;
+            font-size: 3vw;
+        }
+
+        #loading > span{
+            text-align:center;
+            vertical-align: middle;
+            display:table-cell;
+            vertical-align: center;
+        }
+    </style>
+    <div id="loading" style="display:none"><span><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span>  </span></div>
+    <script>
+        document.getElementById("loading").style.display="table";
+    </script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js"></script>
 </head>
 
 <body onload="main()">
+
     <a href="#About" id="tohome"></a>
     <header>
         <img src="header.jpg" title="Reddcoin + Minecraft = Reddconomy" alt="Reddcoin + Minecraft = Reddconomy" />
@@ -162,16 +189,17 @@
     <article id="qr">
         <h3>QRCode Generator</h3>
         <!--
-            https://reddconomy.github.io/#qr:text${XXXXX}!who${XXXXX}
+            https://reddconomy.github.io/#qr:text$XXXXX!who$XXXXX
          -->
         <div class="qrcode">   </div>
         <div class="qrcode_info">   </div>
-        <div class="disclaimer">
+        <span class="noscript">This application requires javascript</span>            
+
+        <div class="disclaimer" style="display:none">
             This is a simple client-side script that converts payment addresses in qr code.<br />
             Everything is done client side, we have no control over what is passed and we can't see nor validate it.<br />
             It is your sole responsability to ensure that the address and qr code are correct.
         </div>
-        <noscript>This application requires javascript</noscript>            
     </article>
 
 

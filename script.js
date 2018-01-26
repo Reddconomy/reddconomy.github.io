@@ -1,4 +1,7 @@
-
+function loading(v) {
+    var loading=document.getElementById("loading");
+    loading.style.display = v ? "table" : "none";
+}
 function genStatusHtml(status) {
 
     var online = status.online;
@@ -79,7 +82,7 @@ function getRequestParams(uri, eq,sep) {
 }
 
 function isSane(tx) {
-    var regex = new RegExp("[^a-z0-9.!$#?=\\-_ @:]","gi");
+    var regex = new RegExp("[^a-z0-9.!$#?=\\-_%& @:]","gi");
     var res=regex.test(tx);
     if (res) console.log(tx, " is not sane");
     else console.log(tx, "is sane");
@@ -87,10 +90,13 @@ function isSane(tx) {
 }
 
 function loadQr() {
+
     if (!document.location.hash.startsWith("#qr:")) {
         document.getElementById("qr").classList.remove( "target");
         return;
     }
+    loading(true);
+
     document.getElementById("qr").getElementsByClassName("disclaimer")[0].style.display = "none";
     document.getElementById("qr").getElementsByClassName("qrcode_info")[0].innerHTML = "... Loading ...";
     
@@ -113,6 +119,7 @@ function loadQr() {
 
             if (!isSane( document.location.hash)) {
                 $("#qr .qrcode_info").html("Error, wrong request");
+                loading(false);
                 return;
             }
 
@@ -127,6 +134,7 @@ function loadQr() {
             if (text == undefined) {
                 console.log("text is undefined");
                 $("#qr .qrcode_info").html("Error, wrong request");
+                loading(false);
 
             } else {
                 
@@ -136,7 +144,7 @@ function loadQr() {
                 var t = text.indexOf("?");
                 if ( t!= -1) {
                     var payment_params = getRequestParams(text.substring(t+1));    
-                    amount = payment_params["amount"];
+                    if(payment_params["amount"])  amount = payment_params["amount"];
                 }
                 t = text.indexOf(":");
                 if (t!=-1) {
@@ -162,24 +170,34 @@ function loadQr() {
                     "text": text,
                     fill: '#182028'
                 });
-           
+                loading(false);
+
             }
         };
     }    
 }
 
 function main() {
+    var noscripts=document.getElementsByClassName("noscript");
+    for (var i = 0; i < noscripts.length; i++)  noscripts[i].style.display = "none";   
+    
+
     console.log("Start");
     if (location.hash === '') {
         location.hash = 'About'
-    } else {
-        loadQr();
-        window.scrollTo(0, 0);   
-    }
+        return;
+    } 
+
+    loading(false);
+
+    loadQr();
+    window.scrollTo(0, 0);   
+    
     updateStatus();
     setInterval(updateStatus, 6000);   
     window.onhashchange = function () {
         window.scrollTo(0, 0);
         loadQr();
     };
+
 }
