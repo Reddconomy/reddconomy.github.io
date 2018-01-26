@@ -79,7 +79,7 @@ function getRequestParams(uri, eq,sep) {
 }
 
 function isSane(tx) {
-    var regex = new RegExp("[^a-z0-9!$#?=\\-_ @:]","gi");
+    var regex = new RegExp("[^a-z0-9.!$#?=\\-_ @:]","gi");
     var res=regex.test(tx);
     if (res) console.log(tx, " is not sane");
     else console.log(tx, "is sane");
