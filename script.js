@@ -2,6 +2,16 @@ function loading(v) {
     var loading=document.getElementById("loading");
     loading.style.display = v ? "table" : "none";
 }
+
+//From https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport/7557433#7557433
+function isElementInViewport (el) {
+    var rect = el.getBoundingClientRect();
+    return (rect.bottom >= 0 && rect.right >= 0
+        && rect.top <= (window.innerHeight
+            || document.documentElement.clientHeight)
+        && rect.left <= (window.innerWidth || document.documentElement.clientWidth));
+}
+
 function genStatusHtml(status) {
 
     var online = status.online;
@@ -176,16 +186,64 @@ function loadQr() {
         };
     }    
 }
-
+var _VIDEOS = [];
 function main() {
+   
     var noscripts=document.getElementsByClassName("noscript");
     for (var i = 0; i < noscripts.length; i++)  noscripts[i].style.display = "none";   
+
     
+    /// VIDEO lazyload
+    console.log("Init lazyload");
+    var videos = document.getElementsByTagName("video");
+    console.log("Found", videos.length,"videos");
+    for (var i = 0; i < videos.length; i++) {
+        console.log("Turn ", videos[i], "to lazyload");
+        _VIDEOS.push({ status: false, video: videos[i] });
+        videos[i].pause();
+    }
+
+    
+    var onVisibilityChange = function () {
+        var playing = 0;
+
+        for (var i = 0; i < _VIDEOS.length; i++) {
+            var video = _VIDEOS[i];
+            var status = isElementInViewport(video.video);
+            if (status != video.status) {
+                video.status = status;
+                var visible = video.status;
+                if (visible) {
+                    console.log("Play", video);
+                    video.video.play();
+                } else {
+                    console.log("Pause", video);
+                    video.video.pause();
+                }
+            } 
+            if(video.status)playing++;
+        }    
+        console.log("Videos playing", playing);
+    };
+
+    if (window.addEventListener) {
+        addEventListener('DOMContentLoaded', onVisibilityChange, false); 
+        addEventListener('load', onVisibilityChange, false); 
+        addEventListener('scroll', onVisibilityChange, false); 
+        addEventListener('resize', onVisibilityChange, false); 
+    } else if (window.attachEvent)  {
+        attachEvent('onDOMContentLoaded', onVisibilityChange); 
+        attachEvent('onload', onVisibilityChange);
+        attachEvent('onscroll', onVisibilityChange);
+        attachEvent('onresize', onVisibilityChange);
+    }
+
+    ///
 
     console.log("Start");
     if (location.hash === '') {
         location.hash = 'About'
-        return;
+        loading(false);
     } 
 
     loading(false);
@@ -196,8 +254,11 @@ function main() {
     updateStatus();
     setInterval(updateStatus, 6000);   
     window.onhashchange = function () {
+        loading(false);
         window.scrollTo(0, 0);
         loadQr();
     };
 
+
+    
 }

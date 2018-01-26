@@ -103,6 +103,7 @@ footer{
     text-align:center;
     font-size:0.7em;
     position :relative;
+    margin-bottom:1em;
 }
 
 label.snapshot{
@@ -271,6 +272,7 @@ section h4{
 }
 
 
-.flag{
-    width:1em;
+footer .flag{
+    height:1em;
 }
+
