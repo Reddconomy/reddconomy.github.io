@@ -205,3 +205,49 @@ table.servers  tr.details td .bold{
     text-shadow: none;
 
 }
+
+video {
+    display:block;
+    width:100%;
+    border:0.1em solid #cecece;
+    margin:2em;
+    margin-left:-1em;
+    margin-right:0;
+}
+
+section{
+ padding-left:1em;
+
+}
+
+section h4{
+    border-bottom:0.1em double #cecece;
+    display:block;
+    width:100%;
+    margin:0;
+    padding-bottom:.3em;
+    margin-bottom:1em;
+    margin-top:3em;
+    margin-left:-1em;
+}
+
+.underdev::before{
+    content: '\26A0'
+}
+
+.underdev::after{
+    content: '\26A0'
+}
+.underdev{
+    display:block;
+    margin-top:1em;
+    font-size:1.5em;
+    color:#f00;
+    font-weight:bold;
+    animation: blink 1.5s linear infinite;
+
+}
+
+@keyframes blink {  
+    50% { opacity: 0; }
+  }
