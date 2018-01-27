@@ -5,35 +5,41 @@
     <meta charset="utf-8" />
     <title>Reddconomy ~ Crypto economy for Minecraft</title>
     <style>
-        #loading{
-            position:fixed;
-            z-index:90;
-            top:0;
-            left:0;
-            color:#fff;
-            background-color:rgba(0,0,0,0.8);
-            width:100%;
-            height:100%;
-            font-size:10em;
+        #loading {
+            position: fixed;
+            z-index: 90;
+            top: 0;
+            left: 0;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            height: 100%;
+            font-size: 10em;
             font-size: 3vw;
         }
 
-        #loading > span{
-            text-align:center;
+        #loading>span {
+            text-align: center;
             vertical-align: middle;
-            display:table-cell;
+            display: table-cell;
             vertical-align: center;
         }
     </style>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script async src="script.js"></script>
 </head>
 
 <body>
     <!-- Loading -->
-    <div id="loading" style="display:none"><span><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span>  </span></div>
-     <script>  document.getElementById("loading").style.display="table";  </script>
+    <div id="loading" style="display:none">
+        <span>
+            <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+        </span>
+    </div>
+    <script>  document.getElementById("loading").style.display = "table";  </script>
     <!-- /Loading -->
 
     <a href="#About" id="tohome"></a>
@@ -49,209 +55,290 @@
     </nav>
     <article id="About">
         <h1>About</h1>
-      
-            Reddconomy is a project that brings cryptocurrency into minecraft. 
+
+        Reddconomy is a project that brings cryptocurrency into minecraft.
+        <br />
+        <span class='underdev'>This project is still under development, we advise not to use it with anything but testnets. </span>
+        <br />
+        <div class="disclaimer">
+            Reddconomy is an independent project, we are in no way affiliated with Mojang, Microsoft, Reddcoin or anyone else.
+
+        </div>
+        <section>
+            <h4>Multicoin support</h4>
+            Despite being originally developed for
+            <i>reddcoin</i>, Reddconomy is blockchain agnostic, as long as the coin provides a fork of
+            <a href="https://en.bitcoin.it/wiki/Bitcoind" target="_blank">bitcoind</a>
+            or exposes compatible RPC apis, it will simply work without any modification.
+            <br /> If required, a
+            <a href="https://github.com/Reddconomy/Reddconomy/blob/master/src/backend/java/reddconomy/blockchain/BlockchainConnector.java"
+                target="_blank">BlockchainConnector</a>
+            can be implemented for coins that don't belong to the preceding category.
+            <video muted autoplay preload='metadata' loop>
+                <source src='https://reddconomy.github.io/misc/media/webm/info.webm' type='video/webm'> Video:
+                <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/info.webm">https://reddconomy.github.io/misc/media/webm/info.webm</a>
+            </video>
+        </section>
+        <section>
+            <h4>Everything happens Off-chain</h4>
+            Reddconomy works by creating offchain wallets, where coins are virtually moved while still sitting on a single shared wallet,
+            this ensures immediate in-game transactions and requires zero configuration on the player side.
+            <br
+            /> The player can easily deposit or withdraw coins from an offchain wallet.
+            <video muted autoplay preload='metadata' loop>
+                <source src='https://reddconomy.github.io/misc/media/webm/deposit.webm' type='video/webm'> Video:
+                <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/deposit.webm">https://reddconomy.github.io/misc/media/webm/deposit.webm</a>
+
+            </video>
+        </section>
+        <section>
+            <h4>Tips</h4>
+            With reddconomy you can easily send and receive tips.
+            <video muted autoplay preload='metadata' loop>
+                <source src='https://reddconomy.github.io/misc/media/webm/playertip.webm' type='video/webm'> Video:
+                <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/playertip.webm">https://reddconomy.github.io/misc/media/webm/playertip.webm</a>
+
+            </video>
+            <video muted autoplay preload='metadata' loop>
+                <source src='https://reddconomy.github.io/misc/media/webm/tipsrv.webm' type='video/webm'> Video:
+                <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/tipsrv.webm">https://reddconomy.github.io/misc/media/webm/tipsrv.webm</a>
+
+            </video>
+        </section>
+        <section>
+            <h4>Contract signs</h4>
+            In Reddconomy,
+            <i>offchain contracts</i> are the basis of every in-game transaction, we make them very easy with the use of
+            <i>Contract Signs</i>.
             <br />
-            <span class='underdev'>This project is still under development, we advise not to use it with anything but testnets. </span>
-            <br />
-            <div class="disclaimer" >
-                    Reddconomy is an independent project,
-                    we are in no way affiliated with  Mojang, Microsoft, Reddcoin or anyone else.
-    
-                </div>
-            <section>
-                <h4>Multicoin support</h4>
-                Despite being originally developed for <i>reddcoin</i>, Reddconomy is blockchain agnostic, as long as the coin provides a fork of
-                 <a href="https://en.bitcoin.it/wiki/Bitcoind" target="_blank">bitcoind</a>
-                 or exposes compatible RPC apis, it will simply work without any modification. 
-                 <br />
-                 If required, a <a href="https://github.com/Reddconomy/Reddconomy/blob/master/src/backend/java/reddconomy/blockchain/BlockchainConnector.java" target="_blank">BlockchainConnector</a>
-                 can be implemented for coins that don't belong to the preceding category.                
-                 <video muted autoplay preload='metadata' loop>
-                        <source src='https://reddconomy.github.io/misc/media/webm/info.webm' type='video/webm' >
-                        Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/info.webm">https://reddconomy.github.io/misc/media/webm/info.webm</a>
-                    </video>
-            </section>            
-            <section>
-                <h4>Everything happens Off-chain</h4>
-                Reddconomy works by creating offchain wallets, where coins are virtually moved while 
-                still sitting on a single shared wallet, this ensures immediate in-game transactions and requires zero configuration 
-                on the player side.<br />
-                The player can easily deposit or withdraw coins from an offchain wallet.
-                <video  muted autoplay preload='metadata' loop>
-                        <source src='https://reddconomy.github.io/misc/media/webm/deposit.webm' type='video/webm' >
-                            Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/deposit.webm">https://reddconomy.github.io/misc/media/webm/deposit.webm</a>
+            <i>Contract Signs</i> can activate redstone.
+            <video muted autoplay preload='metadata' loop>
+                <source src='https://reddconomy.github.io/misc/media/webm/contractsign1.webm' type='video/webm'> Video:
+                <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/contractsign1.webm">https://reddconomy.github.io/misc/media/webm/contractsign1.webm</a>
 
-                    </video>
-            </section>            
-            <section>
-                <h4>Tips</h4>
-                With reddconomy you can easily send and receive tips.
-                <video  muted autoplay preload='metadata' loop>
-                    <source src='https://reddconomy.github.io/misc/media/webm/playertip.webm' type='video/webm' >
-                        Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/playertip.webm">https://reddconomy.github.io/misc/media/webm/playertip.webm</a>
+            </video>
+            <i>Contract Signs</i> can also be used to pay.
+            <video muted autoplay preload='metadata' loop>
+                <source src='https://reddconomy.github.io/misc/media/webm/contractsign2.webm' type='video/webm'> Video:
+                <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/contractsign2.webm">https://reddconomy.github.io/misc/media/webm/contractsign2.webm</a>
 
-                </video>
-                <video  muted autoplay preload='metadata' loop>
-                    <source src='https://reddconomy.github.io/misc/media/webm/tipsrv.webm' type='video/webm' >
-                        Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/tipsrv.webm">https://reddconomy.github.io/misc/media/webm/tipsrv.webm</a>
+            </video>
+            There is another form of
+            <i>Contract Signs</i>, the
+            <i>Temporized Contract Signs</i>, that activate a redstone signal for a specified amount of time.
+            <video muted autoplay preload='metadata' loop>
+                <source src='https://reddconomy.github.io/misc/media/webm/temporized_contractsign.webm' type='video/webm'> Video:
+                <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/temporized_contractsign.webm">https://reddconomy.github.io/misc/media/webm/temporized_contractsign.webm</a>
+            </video>
+            Or disable themselves for the specified amount of time.
+            <video muted autoplay preload='metadata' loop>
+                <source src='https://reddconomy.github.io/misc/media/webm/temporized_contractsign2.webm' type='video/webm'> Video:
+                <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/temporized_contractsign2.webm">https://reddconomy.github.io/misc/media/webm/temporized_contractsign2.webm</a>
+            </video>
+        </section>
+        <section>
+            <h4>Server monetization with deposit, withdraw and transaction fees</h4>
+            Reddconomy lets you set fixed or proportional fees for every action between offchain wallets.
+            <video muted autoplay preload='metadata' loop>
+                <source src='https://reddconomy.github.io/misc/media/webm/fees.webm' type='video/webm'> Video:
+                <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/fees.webm">https://reddconomy.github.io/misc/media/webm/fees.webm</a>
 
-                </video>                
-            </section>
-            <section>
-                    <h4>Contract signs</h4>
-                    In Reddconomy,  <i>offchain contracts</i> are the basis of every in-game transaction, we make them very easy with
-                    the use of <i>Contract Signs</i>.
-                    <br />
-                    <i>Contract Signs</i> can activate redstone.
-                    <video  muted autoplay preload='metadata' loop>
-                        <source src='https://reddconomy.github.io/misc/media/webm/contractsign1.webm' type='video/webm' >
-                            Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/contractsign1.webm">https://reddconomy.github.io/misc/media/webm/contractsign1.webm</a>
-
-                    </video>
-                    <i>Contract Signs</i> can also be used to pay.
-                    <video  muted autoplay preload='metadata' loop>
-                        <source src='https://reddconomy.github.io/misc/media/webm/contractsign2.webm' type='video/webm' >
-                            Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/contractsign2.webm">https://reddconomy.github.io/misc/media/webm/contractsign2.webm</a>
-
-                        </video>      
-                    There is another form of <i>Contract Signs</i>, the <i>Temporized Contract Signs</i>, that activate a redstone signal for a 
-                    specified amount of time.
-                    <video  muted autoplay preload='metadata' loop>
-                        <source src='https://reddconomy.github.io/misc/media/webm/temporized_contractsign.webm' type='video/webm' >
-                            Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/temporized_contractsign.webm">https://reddconomy.github.io/misc/media/webm/temporized_contractsign.webm</a>
-                    </video>     
-                    Or disable themselves for the specified amount of time.
-                    <video  muted autoplay preload='metadata' loop>
-                            <source src='https://reddconomy.github.io/misc/media/webm/temporized_contractsign2.webm' type='video/webm' >
-                            Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/temporized_contractsign2.webm">https://reddconomy.github.io/misc/media/webm/temporized_contractsign2.webm</a>
-                    </video>       
-                </section>
-            <section>
-                <h4>Server monetization with deposit, withdraw and transaction fees</h4>
-                Reddconomy lets you set fixed or proportional fees for every action between  offchain wallets.
-                <video  muted autoplay preload='metadata' loop>
-                    <source src='https://reddconomy.github.io/misc/media/webm/fees.webm' type='video/webm' >
-                        Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/fees.webm">https://reddconomy.github.io/misc/media/webm/fees.webm</a>
-
-                </video>
-            </section>
-            <br />
-            Do you want to try it out? Check the <a href="#PublicServers">public servers list.</a>
+            </video>
+        </section>
+        <br /> Do you want to try it out? Check the
+        <a href="#PublicServers">public servers list.</a>
     </article>
+
+
+
+
+    <!-- SERVER LIST -->
     <article id="PublicServers">
         <h1>Public Servers</h1>
-            <h3>Legend</h3>
-            <ul>
-                <li>VERSION
-                    <ul>
-                        <li><label class='snapshot bold'>SNAPSHOT</label>: The server automatically updates to the latest source code</li>
-                    </ul>
-                </li>
-                <li>TYPE
-                        <ul>
-                            <li><span class='debug bold'>DEBUG</span>: Debug servers are temporary servers used to run untested and sometimes unreleased code and should be considered very unstable</li>
-                            <li><span class='test bold'>TEST</span>: Test servers are temporary servers used to test reddconomy public releases</li>
-                            <li><span class='stable bold'>GAME</span>/<span class='vanilla bold'>vanilla</span>: Normal minecraft servers that use reddconomy.</li>
-                            <li><span class='stable bold'>GAME</span>/<span class='mods bold'>mods</span>: Modded minecraft servers that use reddconomy.</li>
+        <h3>Legend</h3>
+        <ul>
+            <li>VERSION
+                <ul>
+                    <li>
+                        <label class='snapshot bold'>SNAPSHOT</label>: The server automatically updates to the latest source code</li>
+                </ul>
+            </li>
+            <li>TYPE
+                <ul>
+                    <li>
+                        <span class='debug bold'>DEBUG</span>: Debug servers are temporary servers used to run untested and sometimes unreleased code
+                        and should be considered very unstable</li>
+                    <li>
+                        <span class='test bold'>TEST</span>: Test servers are temporary servers used to test reddconomy public releases</li>
+                    <li>
+                        <span class='stable bold'>GAME</span>/
+                        <span class='vanilla bold'>vanilla</span>: Normal minecraft servers that use reddconomy.</li>
+                    <li>
+                        <span class='stable bold'>GAME</span>/
+                        <span class='mods bold'>mods</span>: Modded minecraft servers that use reddconomy.</li>
 
-                        </ul>
-                    </li>
-                    <li>COIN
-                            <ul>
-                                <li>*/<span class='testnet bold'>testnet</span>: The server uses testnet coins. Testnet coins works exactly like real coins but have no value and are usually much easier to obtain.</li>                                
-                            </ul>
-                        </li>
-            </ul>
-            <h3>Servers</h3>
+                </ul>
+            </li>
+            <li>COIN
+                <ul>
+                    <li>*/
+                        <span class='testnet bold'>testnet</span>: The server uses testnet coins. Testnet coins works exactly like real coins but have
+                        no value and are usually much easier to obtain.</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>Servers</h3>
 
-            <table class="servers">
-                <tr>
-                    <th>IP</th><th>VERSION</th><th>TYPE</th><th>COIN</th><th>STATUS</th>
-                </tr>
-                <tr class='server'>
-                    <td>reddtest.soxa.it:25565</td>
-                    <td><label class='snapshot bold'>SNAPSHOT:</label> <a target="_blank" href="http://github.com/Reddconomy/Reddconomy">Reddconomy/master</a></td>
-                    <td><span class='test bold'>TEST</span></td>
-                    <td>DOGECOIN/<span class='testnet bold'>testnet</span></td>
-                    <td class='status'><a href=""  title="Can't load status...">[?]</a></td>
-                </tr>
-                <tr class='details'> <td colspan=5></td></tr>
+        <table class="servers">
+            <tr>
+                <th>IP</th>
+                <th>VERSION</th>
+                <th>TYPE</th>
+                <th>COIN</th>
+                <th>STATUS</th>
+            </tr>
 
-                <tr class='server'>
-                    <td>reddconomy.frk.wf:25567</td>
-                    <td><label class='snapshot bold'>SNAPSHOT:</label> <a target="_blank" href="https://git.frk.wf/riccardoblb/Reddconomy/src/rblb">frk:Reddconomy/rblb</a></td>
-                    <td><span class='debug bold'>DEBUG</span></td>
-                    <td>DOGECOIN/<span class='testnet bold'>testnet</span></td>
-                    <td class='status'><a href="" title="Can't load status...">[?]</a></td>
-                </tr>
-                <tr class='details'> <td colspan=5></td></tr>
+             <!-- Server: reddtest.soxa.it:25565 -->
+            <tr class='server'>
+                <td>reddtest.soxa.it:25565</td>
+                <td>
+                    <label class='snapshot bold'>SNAPSHOT:</label>
+                    <a target="_blank" href="http://github.com/Reddconomy/Reddconomy">Reddconomy/master</a>
+                </td>
+                <td> <span class='test bold'>TEST</span></td>
+                <td>REDDCOIN/<span class='testnet bold'>testnet</span></td>
+                <td class='status'> <a href="" title="Can't load status...">[?]</a> </td>
+            </tr>
+            <tr class='details'> <td colspan=5></td> </tr>
+             <!-- / Server: reddtest.soxa.it:25565 -->
 
 
+            <!-- Server: reddconomy.frk.wf:25567 -->
+            <tr class='server'>
+                <td>reddconomy.frk.wf:25567</td>
+                <td>
+                    <label class='snapshot bold'>SNAPSHOT:</label>
+                    <a target="_blank" href="https://git.frk.wf/riccardoblb/Reddconomy/src/rblb">frk:Reddconomy/rblb</a>
+                 </td>
+                <td> <span class='debug bold'>DEBUG</span> </td>
+                <td>DOGECOIN/<span class='testnet bold'>testnet</span></td>
+                <td class='status'> <a href="" title="Can't load status...">[?]</a></td>
+            </tr>
+            <tr class='details'><td colspan=5></td> </tr>
+            <!-- / Server: reddconomy.frk.wf:25567 -->
+            
 
-                <tr >
-                        <td  colspan=5>   
-                            
-                            <a target="_blank" href='https://github.com/Reddconomy/reddconomy.github.io/issues/new'>
-                            <i style="padding-right:1em" class="fa fa-plus-square-o" aria-hidden="true"></i> Add your server here</a></td>
-  
-                    </tr>
-                    <tr style="display:table-row">
-                        <td colspan=5 style="display:table-cell">    
-                             Do you have a server that runs Reddconomy? Let us know by opening an issue 
-                             <a target="_blank" href='https://github.com/Reddconomy/reddconomy.github.io/issues/new'>here</a>,
-                             we'll add it to this list. (we also accept pull requests)
-                        </td>
-                    </tr>
-    
+            <!-- SERVER TEMPLATE -->
+            <!-- 
+                Edit only things between { }.
+                Params:
+                    YOUR SERVER IP: ...your... server ...ip
+                    REDDCONOMY VERSION:
+                        - For private builds: Whatever you want
+                        - For github snapshot: `<label class='snapshot bold'>SNAPSHOT:</label> 
+                            <a target="_blank" href="https://github.com/{GITHUB USER OR Reddconomy }/Reddconomy/commit/{BRANCH}">
+                            {GITHUB USER OR Reddconomy }/{BRANCH}</a>`
+                        - For github commits: `<label class='bold'>COMMIT:</label>  <a target="_blank" href="https://github.com/{GITHUB USER OR Reddconomy }/Reddconomy/commit/{COMMIT}">
+                            {GITHUB USER OR Reddconomy }/{COMMIT}</a>`
+                        - For releases: There's no release yet.
+                   TYPE:
+                        <span class='debug bold'>DEBUG</span>
+                        <span class='test bold'>TEST</span>
+                        <span class='stable bold'>GAME</span>/<span class='vanilla bold'>vanilla</span>
+                        <span class='stable bold'>GAME</span>/<span class='mods bold'>mods</span>
+                    COIN: The coin you use
+            -->
+            
+            <!-- Begins template -->
+            <!-- Server:  {YOUR SERVER IP} -->
+            <!--<tr class='server'>
+                <td> {YOUR SERVER IP}</td>
+                <td>
+                     {REDDCONOMY VERSION}
+                </td>
+                <td>{TYPE} </td>
+                <td>{COIN}{/<span class='testnet bold'>testnet</span> (optional)}</td>
+                <td class='status'> <a href="" title="Can't load status...">[?]</a></td>
+            </tr>
+            <tr class='details'><td colspan=5></td> </tr>-->
+            <!-- / Server:  {YOUR SERVER IP} -->
+            <!-- ends template -->
 
-                
-            </table>
+            <!-- /SERVER TEMPLATE -->
+
+            <!-- add you server -->
+            <tr>
+                <td colspan=5>
+                    <a target="_blank" href='https://github.com/Reddconomy/reddconomy.github.io/issues/new'>
+                        <i style="padding-right:1em" class="fa fa-plus-square-o" aria-hidden="true"></i> Add your server here</a>
+                </td>
+            </tr>
+            <tr style="display:table-row">
+                <td colspan=5 style="display:table-cell">
+                    Do you have a server that runs Reddconomy? Let us know by opening an issue
+                    <a target="_blank" href='https://github.com/Reddconomy/reddconomy.github.io/issues/new'>here</a>, we'll add it to this list. (we also accept pull requests)
+                </td>
+            </tr>
+            <!-- / add your server -->
+
+        </table>
     </article>
+    <!-- / SERVER LIST -->
+
+
+
+
+
     <article id="qr">
         <h3>QRCode Generator</h3>
         <!--
             https://reddconomy.github.io/#qr:text$XXXXX!who$XXXXX
          -->
-        <div class="qrcode">   </div>
-        <div class="qrcode_info">   </div>
-        <span class="noscript">This application requires javascript</span>            
+        <div class="qrcode"> </div>
+        <div class="qrcode_info"> </div>
+        <span class="noscript">This application requires javascript</span>
 
         <div class="disclaimer" style="display:none">
-            This is a simple client-side script that converts payment addresses in qr code.<br />
-            Everything is done client side, we have no control over what is passed and we can't see nor validate it.<br />
-            It is your sole responsability to ensure that the address and qr code are correct.
+            This is a simple client-side script that converts payment addresses in qr code.
+            <br /> Everything is done client side, we have no control over what is passed and we can't see nor validate it.
+            <br
+            /> It is your sole responsability to ensure that the address and qr code are correct.
         </div>
     </article>
 
 
     <footer>
-            <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/it.svg" alt="it flag" class="flag" /> Copyright (c) 2018 - <a href="https://github.com/riccardobl" target="_blank">Riccardo Balbo</a>, <a href="https://github.com/Soxasora" target="_blank">Simone Cervino</a> 
-        <br />        <br />
-
+        <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/it.svg" alt="it flag" class="flag" /> Copyright (c) 2018 -
+        <a href="https://github.com/riccardobl" target="_blank">Riccardo Balbo</a>,
+        <a href="https://github.com/Soxasora" target="_blank">Simone Cervino</a>
+        <br />
+        <br />
         <a href="reddcoin:RYfhsFZvqwNhUQZbcjMJkD7R5pNuhFcrjE?label=Tip%20To%20Reddconomy">reddcoin:RYfhsFZvqwNhUQZbcjMJkD7R5pNuhFcrjE</a>
         <br />
-        <div class="disclaimer" >
-                Reddconomy is an independent project,
-                we are in no way affiliated with  Mojang, Microsoft, Reddcoin or anyone else.
-
-            </div>
+        <div class="disclaimer">
+            Reddconomy is an independent project, we are in no way affiliated with Mojang, Microsoft, Reddcoin or anyone else.
+        </div>
     </footer>
+
     <div aria-hidden="true" id="buildstatus">
-        <a target="_blank"  href="https://travis-ci.org/Reddconomy/Reddconomy">
-            <img src="https://travis-ci.org/Reddconomy/Reddconomy.svg?branch=master"  title="Reddconomy" alt="Reddconomy" />
+        <a target="_blank" href="https://travis-ci.org/Reddconomy/Reddconomy">
+            <img src="https://travis-ci.org/Reddconomy/Reddconomy.svg?branch=master" title="Reddconomy" alt="Reddconomy" />
         </a>
-        <a target="_blank"  href="https://hub.docker.com/r/riccardoblb/reddconomy_test/builds/">
-            <img src="https://dockerbuildbadges.quelltext.eu/status.svg?organization=riccardoblb&repository=reddconomy_test&tag=amd64" 
-        alt="Reddconomy docker backend " title="Reddconomy docker backend" />
+        <a target="_blank" href="https://hub.docker.com/r/riccardoblb/reddconomy_test/builds/">
+            <img src="https://dockerbuildbadges.quelltext.eu/status.svg?organization=riccardoblb&repository=reddconomy_test&tag=amd64"
+                alt="Reddconomy docker backend " title="Reddconomy docker backend" />
         </a>
-        <a  target="_blank"  href="https://hub.docker.com/r/riccardoblb/reddconomy-sponge/builds/">
-          <img src="https://dockerbuildbadges.quelltext.eu/status.svg?organization=riccardoblb&repository=reddconomy-sponge&tag=amd64" 
-        alt="reddconomy docker frontend"  title="Reddconomy docker frontend"/>
+        <a target="_blank" href="https://hub.docker.com/r/riccardoblb/reddconomy-sponge/builds/">
+            <img src="https://dockerbuildbadges.quelltext.eu/status.svg?organization=riccardoblb&repository=reddconomy-sponge&tag=amd64"
+                alt="reddconomy docker frontend" title="Reddconomy docker frontend" />
         </a>
-        
     </div>
-    <a aria-hidden="true" target="_blank" href="https://github.com/Reddconomy/Reddconomy/"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:4" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+
+    <a aria-hidden="true" target="_blank" href="https://github.com/Reddconomy/Reddconomy/">
+        <img style="position: absolute; top: 0; right: 0; border: 0;z-index:4" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67"
+            alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
+    </a>
+
 </body>
 
 </html>
