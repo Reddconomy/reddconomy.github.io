@@ -186,17 +186,27 @@ function loadQr() {
         };
     }    
 }
+
+var _ORIGINAL_TITLE = undefined;
+function updateTitle(){
+    if (!_ORIGINAL_TITLE) _ORIGINAL_TITLE = document.title;
+    if (location.hash !== "#About") {
+        document.title = document.title.split("~")[0] + "~ " + location.hash.substring(1);
+    } else {
+        document.title = _ORIGINAL_TITLE;   
+    }
+}
 var _VIDEOS = [];
 function main() {
    
-    var noscripts=document.getElementsByClassName("noscript");
-    for (var i = 0; i < noscripts.length; i++)  noscripts[i].style.display = "none";   
+    var noscripts = document.getElementsByClassName("noscript");
+    for (var i = 0; i < noscripts.length; i++)  noscripts[i].style.display = "none";
 
     
     /// VIDEO lazyload
     console.log("Init lazyload");
     var videos = document.getElementsByTagName("video");
-    console.log("Found", videos.length,"videos");
+    console.log("Found", videos.length, "videos");
     for (var i = 0; i < videos.length; i++) {
         console.log("Turn ", videos[i], "to lazyload");
         _VIDEOS.push({ status: false, video: videos[i] });
@@ -220,19 +230,19 @@ function main() {
                     console.log("Pause", video);
                     video.video.pause();
                 }
-            } 
-            if(video.status)playing++;
-        }    
+            }
+            if (video.status) playing++;
+        }
         console.log("Videos playing", playing);
     };
 
     if (window.addEventListener) {
-        addEventListener('DOMContentLoaded', onVisibilityChange, false); 
-        addEventListener('load', onVisibilityChange, false); 
-        addEventListener('scroll', onVisibilityChange, false); 
-        addEventListener('resize', onVisibilityChange, false); 
-    } else if (window.attachEvent)  {
-        attachEvent('onDOMContentLoaded', onVisibilityChange); 
+        addEventListener('DOMContentLoaded', onVisibilityChange, false);
+        addEventListener('load', onVisibilityChange, false);
+        addEventListener('scroll', onVisibilityChange, false);
+        addEventListener('resize', onVisibilityChange, false);
+    } else if (window.attachEvent) {
+        attachEvent('onDOMContentLoaded', onVisibilityChange);
         attachEvent('onload', onVisibilityChange);
         attachEvent('onscroll', onVisibilityChange);
         attachEvent('onresize', onVisibilityChange);
@@ -244,16 +254,17 @@ function main() {
     if (location.hash === '') {
         location.hash = 'About'
         loading(false);
-    } 
+    }
 
+    updateTitle();
     loading(false);
-
     loadQr();
     window.scrollTo(0, 0);   
     
     updateStatus();
     setInterval(updateStatus, 6000);   
     window.onhashchange = function () {
+        updateTitle();
         loading(false);
         window.scrollTo(0, 0);
         loadQr();
