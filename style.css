@@ -45,7 +45,7 @@ nav {
     text-align:center;
     font-weight: bold;
 
-    z-index:4;
+    z-index:10;
     pointer-events: auto;
 
 }
@@ -77,7 +77,7 @@ nav a:visited{
 
 article{
     position:relative;
-    z-index:3;
+    z-index:6;
     display:block;
     height:0px;
    width:80%;
@@ -283,3 +283,14 @@ footer .flag{
     height:1em;
 }
 
+#buildstatus{
+    z-index:4;
+    position:absolute;
+    top:0.5em;
+    left:0.5em;
+
+}
+
+#buildstatus a,#buildstatus a:hover,#buildstatus a:visited{
+    text-decoration: none;
+}
