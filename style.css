@@ -21,29 +21,45 @@ body{
 }
 
 header {
-    height:10%;
-    height:20vh;
-    margin-top:2%;
-    margin-top:2vh;
+    margin:auto;
+    width:20em;
+    min-height:16em;
+    margin-top:0.5em;
+
     position:relative;
-    width:100%;
     display:block;
     text-align:center;
     z-index:1;
     pointer-events: none;
     user-select: none; 
+}
+
+nav {
+    font-size:1em;
+    top:16em;
+    
+    user-select: none; 
+    display:block;
+    position:absolute;
+    width:100%;
+    text-align:center;
+    font-weight: bold;
+
+    z-index:4;
+    pointer-events: auto;
 
 }
 
 header img{
-    height:100%;
+    
+    width:100%;
 }
+
 
 nav a{
     color:inherit;
     text-decoration: inherit;
     padding:0.5em;
-    font-size:1em;
 }
 
 nav a:hover{
@@ -55,20 +71,6 @@ nav a:visited{
     text-decoration: inherit;
 }
 
-nav {
-    user-select: none; 
-    display:block;
-    position:absolute;
-    width:100%;
-    text-align:center;
-    top:3em;
-    top:18.4vh;
-    font-size:1em;
-    font-size:2.vh;
-    z-index:4;
-    pointer-events: auto;
-
-}
 
 
 
