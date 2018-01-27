@@ -56,12 +56,15 @@ function updateStatus() {
             var port = ip[1];
             ip = ip[0];
             console.log("Check status of " + ip + " " + port);
+
+            var statusel = server.getElementsByClassName("status")[0];
+            var descel = server.nextElementSibling;
+            statusel.innerHTML = '<i class="loading fa fa-cog fa-spin fa-3x fa-fw"></i>';
+
             status(ip, port, function (status) {
                 console.log("Status of ", ip, port, ":", status);
-                var statusel = server.getElementsByClassName("status")[0];
                 var s=genStatusHtml(status);
                 statusel.innerHTML = s.status;
-                descel = server.nextElementSibling;
                 if (s.description === "") {
                     descel.style.display = "none";
                 } else {
@@ -272,4 +275,13 @@ function main() {
 
 
     
+}
+if (document.readyState !== "loading") {
+    console.log("Document ready");
+    main();
+}else {
+    console.log("Document still loading...", document.readyState);
+    document.addEventListener('DOMContentLoaded', function() {
+        main();
+    }, false);
 }

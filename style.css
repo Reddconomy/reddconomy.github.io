@@ -294,3 +294,8 @@ footer .flag{
 #buildstatus a,#buildstatus a:hover,#buildstatus a:visited{
     text-decoration: none;
 }
+
+.server .loading{
+    font-size:1em;
+    color:#f00;
+}

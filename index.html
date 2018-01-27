@@ -25,16 +25,16 @@
             vertical-align: center;
         }
     </style>
-    <div id="loading" style="display:none"><span><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span>  </span></div>
-    <script>
-        document.getElementById("loading").style.display="table";
-    </script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
+    <script async src="script.js"></script>
 </head>
 
-<body onload="main()">
+<body>
+    <!-- Loading -->
+    <div id="loading" style="display:none"><span><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span>  </span></div>
+     <script>  document.getElementById("loading").style.display="table";  </script>
+    <!-- /Loading -->
 
     <a href="#About" id="tohome"></a>
     <header>
@@ -48,13 +48,7 @@
 
     </nav>
     <article id="About">
-        <script>
-            if(location.hash==="#About"){
-                loading(false);   
-            }
-        </script>
         <h1>About</h1>
-        <p>
             Reddconomy is a project that brings cryptocurrency into minecraft. 
             <br />
             <span class='underdev'>This project is still under development, we advise not to use it with anything but testnets. </span>
@@ -68,7 +62,7 @@
                  can be implemented for coins that don't belong to the preceding category.                
                  <video muted autoplay preload='metadata' loop>
                         <source src='https://reddconomy.github.io/misc/media/webm/info.webm' type='video/webm' >
-                        Video: <a target="_blank"href="https://reddconomy.github.io/misc/media/webm/info.webm">https://reddconomy.github.io/misc/media/webm/info.webm</a>
+                        Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/info.webm">https://reddconomy.github.io/misc/media/webm/info.webm</a>
                     </video>
             </section>            
             <section>
@@ -79,7 +73,7 @@
                 The player can easily deposit or withdraw coins from an offchain wallet.
                 <video  muted autoplay preload='metadata' loop>
                         <source src='https://reddconomy.github.io/misc/media/webm/deposit.webm' type='video/webm' >
-                            Video: <a target="_blank"href="https://reddconomy.github.io/misc/media/webm/deposit.webm">https://reddconomy.github.io/misc/media/webm/deposit.webm</a>
+                            Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/deposit.webm">https://reddconomy.github.io/misc/media/webm/deposit.webm</a>
 
                     </video>
             </section>            
@@ -88,12 +82,12 @@
                 With reddconomy you can easily send and receive tips.
                 <video  muted autoplay preload='metadata' loop>
                     <source src='https://reddconomy.github.io/misc/media/webm/playertip.webm' type='video/webm' >
-                        Video: <a target="_blank"href="https://reddconomy.github.io/misc/media/webm/playertip.webm">https://reddconomy.github.io/misc/media/webm/playertip.webm</a>
+                        Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/playertip.webm">https://reddconomy.github.io/misc/media/webm/playertip.webm</a>
 
                 </video>
                 <video  muted autoplay preload='metadata' loop>
                     <source src='https://reddconomy.github.io/misc/media/webm/tipsrv.webm' type='video/webm' >
-                        Video: <a target="_blank"href="https://reddconomy.github.io/misc/media/webm/tipsrv.webm">https://reddconomy.github.io/misc/media/webm/tipsrv.webm</a>
+                        Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/tipsrv.webm">https://reddconomy.github.io/misc/media/webm/tipsrv.webm</a>
 
                 </video>                
             </section>
@@ -105,25 +99,25 @@
                     <i>Contract Signs</i> can activate redstone.
                     <video  muted autoplay preload='metadata' loop>
                         <source src='https://reddconomy.github.io/misc/media/webm/contractsign1.webm' type='video/webm' >
-                            Video: <a target="_blank"href="https://reddconomy.github.io/misc/media/webm/contractsign1.webm">https://reddconomy.github.io/misc/media/webm/contractsign1.webm</a>
+                            Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/contractsign1.webm">https://reddconomy.github.io/misc/media/webm/contractsign1.webm</a>
 
                     </video>
                     <i>Contract Signs</i> can also be used to pay.
                     <video  muted autoplay preload='metadata' loop>
                         <source src='https://reddconomy.github.io/misc/media/webm/contractsign2.webm' type='video/webm' >
-                            Video: <a target="_blank"href="https://reddconomy.github.io/misc/media/webm/contractsign2.webm">https://reddconomy.github.io/misc/media/webm/contractsign2.webm</a>
+                            Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/contractsign2.webm">https://reddconomy.github.io/misc/media/webm/contractsign2.webm</a>
 
                         </video>      
                     There is another form of <i>Contract Signs</i>, the <i>Temporized Contract Signs</i>, that activate a redstone signal for a 
                     specified amount of time.
                     <video  muted autoplay preload='metadata' loop>
                         <source src='https://reddconomy.github.io/misc/media/webm/temporized_contractsign.webm' type='video/webm' >
-                            Video: <a target="_blank"href="https://reddconomy.github.io/misc/media/webm/temporized_contractsign.webm">https://reddconomy.github.io/misc/media/webm/temporized_contractsign.webm</a>
+                            Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/temporized_contractsign.webm">https://reddconomy.github.io/misc/media/webm/temporized_contractsign.webm</a>
                     </video>     
                     Or disable themselves for the specified amount of time.
                     <video  muted autoplay preload='metadata' loop>
                             <source src='https://reddconomy.github.io/misc/media/webm/temporized_contractsign2.webm' type='video/webm' >
-                            Video: <a target="_blank"href="https://reddconomy.github.io/misc/media/webm/temporized_contractsign2.webm">https://reddconomy.github.io/misc/media/webm/temporized_contractsign2.webm</a>
+                            Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/temporized_contractsign2.webm">https://reddconomy.github.io/misc/media/webm/temporized_contractsign2.webm</a>
                     </video>       
                 </section>
             <section>
@@ -131,17 +125,15 @@
                 Reddconomy lets you set fixed or proportional fees for every action between  offchain wallets.
                 <video  muted autoplay preload='metadata' loop>
                     <source src='https://reddconomy.github.io/misc/media/webm/fees.webm' type='video/webm' >
-                        Video: <a target="_blank"href="https://reddconomy.github.io/misc/media/webm/fees.webm">https://reddconomy.github.io/misc/media/webm/fees.webm</a>
+                        Video: <a target="_blank" href="https://reddconomy.github.io/misc/media/webm/fees.webm">https://reddconomy.github.io/misc/media/webm/fees.webm</a>
 
                 </video>
             </section>
             <br />
             Do you want to try it out? Check the <a href="#PublicServers">public servers list.</a>
-            </p>
     </article>
     <article id="PublicServers">
         <h1>Public Servers</h1>
-        <p>
             <h3>Legend</h3>
             <ul>
                 <li>VERSION
@@ -190,7 +182,7 @@
 
 
 
-                <tr class='server'>
+                <tr >
                         <td  colspan=5>   
                             
                             <a target="_blank" href='https://github.com/Reddconomy/reddconomy.github.io/issues/new'>
@@ -202,14 +194,12 @@
                              Do you have a server that runs Reddconomy? Let us know by opening an issue 
                              <a target="_blank" href='https://github.com/Reddconomy/reddconomy.github.io/issues/new'>here</a>,
                              we'll add it to this list. (we also accept pull requests)
-                            </a>
                         </td>
                     </tr>
     
 
                 
             </table>
-        </p>
     </article>
     <article id="qr">
         <h3>QRCode Generator</h3>
@@ -229,7 +219,7 @@
 
 
     <footer>
-            <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/it.svg" class="flag" /> Copyright (c) 2018 - <a href="https://github.com/riccardobl" target="_blank">Riccardo Balbo</a>, <a href="https://github.com/Soxasora" target="_blank">Simone Cervino</a> 
+            <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/it.svg" alt="it flag" class="flag" /> Copyright (c) 2018 - <a href="https://github.com/riccardobl" target="_blank">Riccardo Balbo</a>, <a href="https://github.com/Soxasora" target="_blank">Simone Cervino</a> 
         <br />        <br />
 
         <a href="reddcoin:RYfhsFZvqwNhUQZbcjMJkD7R5pNuhFcrjE?label=Tip%20To%20Reddconomy">reddcoin:RYfhsFZvqwNhUQZbcjMJkD7R5pNuhFcrjE</a>
@@ -247,7 +237,7 @@
         <a target="_blank"  href="https://hub.docker.com/r/riccardoblb/reddconomy_test/builds/">
             <img src="https://dockerbuildbadges.quelltext.eu/status.svg?organization=riccardoblb&repository=reddconomy_test&tag=amd64" 
         alt="Reddconomy docker backend " title="Reddconomy docker backend" />
-        <a />
+        </a>
         <a  target="_blank"  href="https://hub.docker.com/r/riccardoblb/reddconomy-sponge/builds/">
           <img src="https://dockerbuildbadges.quelltext.eu/status.svg?organization=riccardoblb&repository=reddconomy-sponge&tag=amd64" 
         alt="reddconomy docker frontend"  title="Reddconomy docker frontend"/>
