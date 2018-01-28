@@ -62,6 +62,18 @@ nav a{
     padding:0.5em;
 }
 
+a,a:visited,a:hover{
+    text-decoration: underline;
+}
+
+a,a:visited {
+    color:#4130ff;
+}
+a:hover {
+    color:#5b4cff;
+}
+
+
 nav a:hover{
     color:inherit;
     text-decoration: inherit;
