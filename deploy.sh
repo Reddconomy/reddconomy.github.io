@@ -30,3 +30,11 @@ git commit -m "Travis build: $TRAVIS_BUILD_NUMBER"
 
 git remote add origin https://${GH_TOKEN}@github.com/Reddconomy/reddconomy.github.io.git > /dev/null 2>&1
 git push  origin master --force
+
+#Purge cloudflare cache
+
+curl -X DELETE "https://api.cloudflare.com/client/v4/zones/99db44fb5e894af060a361480263bd87/purge_cache" \
+     -H "X-Auth-Email: ${CLOUDFLARE_AUTH_EMAIL}" \
+     -H "X-Auth-Key:  ${CLOUDFLARE_AUTH_KEY}" \
+     -H "Content-Type: application/json" \
+     --data '{"purge_everything":true}'
