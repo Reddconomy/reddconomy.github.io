@@ -1,0 +1,133 @@
+ID=PublicServers;TYPE=page;NAV=#PublicServers
+
+ <!-- SERVER LIST -->
+
+ <h1>Public Servers</h1>
+ <h3>Legend</h3>
+ <ul>
+     <li>VERSION
+         <ul>
+             <li>
+                 <label class='snapshot bold'>SNAPSHOT</label>: The server automatically updates to the latest source code</li>
+         </ul>
+     </li>
+     <li>TYPE
+         <ul>
+             <li>
+                 <span class='debug bold'>DEBUG</span>: Debug servers are temporary servers used to run untested and sometimes unreleased code
+                 and should be considered very unstable</li>
+             <li>
+                 <span class='test bold'>TEST</span>: Test servers are temporary servers used to test reddconomy public releases</li>
+             <li>
+                 <span class='stable bold'>GAME</span>/
+                 <span class='vanilla bold'>vanilla</span>: Normal minecraft servers that use reddconomy.</li>
+             <li>
+                 <span class='stable bold'>GAME</span>/
+                 <span class='mods bold'>mods</span>: Modded minecraft servers that use reddconomy.</li>
+
+         </ul>
+     </li>
+     <li>COIN
+         <ul>
+             <li>*/
+                 <span class='testnet bold'>testnet</span>: The server uses testnet coins. Testnet coins works exactly like real coins but have
+                 no value and are usually much easier to obtain.</li>
+         </ul>
+     </li>
+ </ul>
+ <h3>Servers</h3>
+ <table class="servers">
+     <tr>
+         <th>IP</th>
+         <th>VERSION</th>
+         <th>TYPE</th>
+         <th>COIN</th>
+         <th>STATUS</th>
+     </tr>
+
+      <!-- Server: reddtest.soxa.it:25565 -->
+     <tr class='server'>
+         <td>reddtest.soxa.it:25565</td>
+         <td>
+             <label class='snapshot bold'>SNAPSHOT:</label>
+             <a target="_blank" href="http://github.com/Reddconomy/Reddconomy">Reddconomy/master</a>
+         </td>
+         <td> <span class='test bold'>TEST</span></td>
+         <td>DOGECOIN/<span class='testnet bold'>testnet</span></td>
+         <td class='status'> <a href="" title="Can't load status...">[?]</a> </td>
+     </tr>
+     <tr class='details'> <td colspan=5></td> </tr>
+      <!-- / Server: reddtest.soxa.it:25565 -->
+
+
+     <!-- Server: reddconomy.frk.wf:25567 -->
+     <tr class='server'>
+         <td>reddconomy.frk.wf:25567</td>
+         <td>
+             <label class='snapshot bold'>SNAPSHOT:</label>
+             <a target="_blank" href="https://git.frk.wf/riccardoblb/Reddconomy/src/rblb">frk:Reddconomy/rblb</a>
+          </td>
+         <td> <span class='debug bold'>DEBUG</span> </td>
+         <td>DOGECOIN/<span class='testnet bold'>testnet</span></td>
+         <td class='status'> <a href="" title="Can't load status...">[?]</a></td>
+     </tr>
+     <tr class='details'><td colspan=5></td> </tr>
+     <!-- / Server: reddconomy.frk.wf:25567 -->
+     
+
+     <!-- SERVER TEMPLATE -->
+     <!-- 
+         Edit only things between { }.
+         Params:
+             YOUR SERVER IP: ...your... server ...ip
+             REDDCONOMY VERSION:
+                 - For private builds: Whatever you want
+                 - For github snapshot: `<label class='snapshot bold'>SNAPSHOT:</label> 
+                     <a target="_blank" href="https://github.com/{GITHUB USER OR Reddconomy }/Reddconomy/commit/{BRANCH}">
+                     {GITHUB USER OR Reddconomy }/{BRANCH}</a>`
+                 - For github commits: `<label class='bold'>COMMIT:</label>  <a target="_blank" href="https://github.com/{GITHUB USER OR Reddconomy }/Reddconomy/commit/{COMMIT}">
+                     {GITHUB USER OR Reddconomy }/{COMMIT}</a>`
+                 - For releases: There's no release yet.
+            TYPE:
+                 <span class='debug bold'>DEBUG</span>
+                 <span class='test bold'>TEST</span>
+                 <span class='stable bold'>GAME</span>/<span class='vanilla bold'>vanilla</span>
+                 <span class='stable bold'>GAME</span>/<span class='mods bold'>mods</span>
+             COIN: The coin you use
+     -->
+     
+     <!-- Begins template -->
+     <!-- Server:  {YOUR SERVER IP} -->
+     <!--<tr class='server'>
+         <td> {YOUR SERVER IP}</td>
+         <td>
+              {REDDCONOMY VERSION}
+         </td>
+         <td>{TYPE} </td>
+         <td>{COIN}{/<span class='testnet bold'>testnet</span> (optional)}</td>
+         <td class='status'> <a href="" title="Can't load status...">[?]</a></td>
+     </tr>
+     <tr class='details'><td colspan=5></td> </tr>-->
+     <!-- / Server:  {YOUR SERVER IP} -->
+     <!-- ends template -->
+
+     <!-- /SERVER TEMPLATE -->
+
+     <!-- add you server -->
+     <tr>
+         <td colspan=5>
+             <a target="_blank" href='https://github.com/Reddconomy/reddconomy.github.io/issues/new'>
+                 <i style="padding-right:1em" class="fa fa-plus-square-o" aria-hidden="true"></i> Add your server here</a>
+         </td>
+     </tr>
+     <tr style="display:table-row">
+         <td colspan=5 style="display:table-cell">
+             Do you have a server that runs Reddconomy? Let us know by opening an issue
+             <a target="_blank" href='https://github.com/Reddconomy/reddconomy.github.io/issues/new'>here</a>, we'll add it to this list. (we also accept pull requests)
+         </td>
+     </tr>
+     <!-- / add your server -->
+
+ </table>
+
+  <!-- /SERVER LIST -->

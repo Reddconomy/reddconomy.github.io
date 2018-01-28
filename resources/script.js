@@ -194,7 +194,7 @@ var _ORIGINAL_TITLE = undefined;
 function updateTitle(){
     if (!_ORIGINAL_TITLE) _ORIGINAL_TITLE = document.title;
     if (location.hash !== "#About") {
-        document.title = document.title.split("~")[0] + "~ " + location.hash.substring(1);
+        document.title = document.title.split("{TITLE_SEP}")[0] + " {TITLE_SEP} " + location.hash.substring(1);
     } else {
         document.title = _ORIGINAL_TITLE;   
     }

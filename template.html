@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta charset="utf-8" />
+    <title>{TITLE}</title>
+    <style>{style.css} </style>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"    crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script async src="script.js"></script>
+</head>
+<body>
+    <!-- Loading -->
+    <div id="loading" style="display:none">
+        <span>
+            <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+        </span>
+    </div>
+    <script>  document.getElementById("loading").style.display = "table";  </script>
+    <!-- /Loading -->
+    <a href="{HOME}" id="tohome"></a>
+    <header> {header.html} </header>
+    <nav> {nav.generated}</nav>
+    {pages.generated}
+    <footer> {footer.html}  </footer>
+    {widgets.html}
+</body>
+</html>
