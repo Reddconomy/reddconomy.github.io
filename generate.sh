@@ -45,12 +45,11 @@ for f in *;
 do    
     echo "Load page $f"
     vv=`head -n 1 $f`
-    vv=(${vv//;/ })
     declare -A vars
+    IFS=";"
     for p in ${vv[@]}; do
-        pp=(${p//=/ })
-        k=${pp[0]} 
-        v=${pp[1]}
+        k=${p%%"="*} 
+        v=${p#*"="}
         echo $k = $v
         vars[${k^^}]=$v
     done

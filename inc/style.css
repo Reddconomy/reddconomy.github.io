@@ -36,7 +36,7 @@ header {
 
 nav {
     font-size:1em;
-    top:16em;
+    top:16.1sem;
     
     user-select: none; 
     display:block;
@@ -48,6 +48,10 @@ nav {
     z-index:10;
     pointer-events: auto;
 
+}
+
+nav i {
+    padding-right:0.2em;
 }
 
 header img{
@@ -92,8 +96,8 @@ article{
     z-index:6;
     display:block;
     height:0px;
-   width:80%;
-   margin:auto;
+    width:0px;
+    margin:auto;
     opacity:0;
     transition: opacity .5s;
     -webkit-transition: opacity .5s;
@@ -104,6 +108,7 @@ article{
 }
 
 article:target,article.target{
+    width:80%;
     position:relative;
     visibility: visible;
     height:auto;
@@ -333,3 +338,10 @@ footer .flag{
     display: table-cell;
     vertical-align: center;
 }
+
+a.blockchain_addr{
+    display:block;
+    width:100%;
+}
+
+

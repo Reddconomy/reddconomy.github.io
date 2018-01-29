@@ -3,6 +3,12 @@ function loading(v) {
     loading.style.display = v ? "table" : "none";
 }
 
+function isElementVisible(el) {
+    var rect = el.getBoundingClientRect();
+    return rect.height > 0&&rect.width > 0;
+}
+
+
 //From https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport/7557433#7557433
 function isElementInViewport (el) {
     var rect = el.getBoundingClientRect();
@@ -102,92 +108,161 @@ function isSane(tx) {
     return !res;
 }
 
-function loadQr() {
+var Dependencies = {};
 
-    if (!document.location.hash.startsWith("#qr:")) {
-        document.getElementById("qr").classList.remove( "target");
-        return;
+function loadQrCodes() {
+    console.log("Load qr codes");
+    var qrcodes_s = document.getElementsByClassName("blockchain_addr");
+    var qrcodes = [];
+    for (var i = 0; i < qrcodes_s.length; i++) {
+        if (isElementVisible(qrcodes_s[i])) {
+            qrcodes.push(qrcodes_s[i]);   
+        }
     }
+    console.log("Found ", qrcodes_s.length, "qr codes of which ", qrcodes.length, "are visible");
+    if (qrcodes.length == 0 && !document.location.hash.startsWith("#qr:")) return;
+    
+    
+    console.log("Generate qr codes");
+    
     loading(true);
 
     document.getElementById("qr").getElementsByClassName("disclaimer")[0].style.display = "none";
     document.getElementById("qr").getElementsByClassName("qrcode_info")[0].innerHTML = "... Loading ...";
-    
-  
 
-    var jquery = document.createElement("script"); 
-    jquery.src = "https://code.jquery.com/jquery-3.3.1.min.js"; 
-    //jquery.integrity = "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="; 
-    jquery.crossorigin = "anonymous";     
-    document.head.appendChild(jquery);
-    jquery.onload = function () {
+    var _onload = function () {
+        loading(true);
+
+        Dependencies.jquery_qr = true;
+        $("a.blockchain_addr").each(function () {
+            var addr = $(this);
+            if (addr.attr("original_content")) {
+                addr.html(addr.attr("original_content"));
+            }
+            var href = addr.attr("href");
+            var old_content = addr.html();
+            addr.attr("original_content", old_content);
+            console.log("Generate qr for", href);
+            addr.empty().qrcode({
+                render: 'div',
+                text: href,
+                fill: '#182028',
+            });
+            var tx = $("<span></span>");
+          
+            tx.html("<br/>" + old_content + "<hr />");
+            addr.append(tx);
+        });
+
+        loading(false);
+        loadQrGen();
+    };
+
+    var _on_jquery_load = function () {
+        console.log("Load JQueryQR");
         var script = document.createElement("script");
         script.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js";
         //script.integrity = "sha256-9MzwK2kJKBmsJFdccXoIDDtsbWFh8bjYK/C7UjB1Ay0=";
         script.crossorigin = "anonymous";
         document.head.appendChild(script);
-        script.onload=function () {
-            $("#qr").addClass("target");
-            console.log("Generate QR");
-
-            if (!isSane( document.location.hash)) {
-                $("#qr .qrcode_info").html("Error, wrong request");
-                loading(false);
-                return;
-            }
-
-            var vars = document.location.hash.substring("#qr:".length);
-            vars=getRequestParams(vars,"$","!");
-
-            var text = vars["text"];
-            var who = vars["who"];
-
-            if (!who) who = "Someone";
-
-            if (text == undefined) {
-                console.log("text is undefined");
-                $("#qr .qrcode_info").html("Error, wrong request");
-                loading(false);
-
-            } else {
-                
-                var coin="coins"
-                var amount = "some";
-                var address = text;
-                var t = text.indexOf("?");
-                if ( t!= -1) {
-                    var payment_params = getRequestParams(text.substring(t+1));    
-                    if(payment_params["amount"])  amount = payment_params["amount"];
-                }
-                t = text.indexOf(":");
-                if (t!=-1) {
-                    coin = text.substring(0,t);
-                }
-                if (t != -1) {
-                    address = text.substring(t + 1);
-                    t = address.indexOf("?");
-                    if(t!=-1)   address=address.substring(0,t);
-                }
-
-                
-           
-
-                console.log("who", who, "text", text);
-
-                $("#qr .qrcode_info").html(who+" wants you to send "+amount+" "+coin+" to "+address);
-                var qrcode = $("#qr .qrcode");
-                $("#qr .disclaimer").show();
-
-                qrcode.empty().qrcode({
-                    render: 'div',
-                    "text": text,
-                    fill: '#182028'
-                });
-                loading(false);
-
-            }
+        script.onload = function () {
+            Dependencies.jquery = true;
+            _onload();
         };
-    }    
+    };
+
+    if (Dependencies.jquery) {
+        console.log("JQuery already loaded");
+        if (Dependencies.jquery_qr) {
+            console.log("JQueryQR already loaded");
+            _onload();
+        } else {
+            _on_jquery_load();
+        }
+    } else {
+        console.log("Load JQuery");
+        var jquery = document.createElement("script");
+        jquery.src = "https://code.jquery.com/jquery-3.3.1.min.js";
+        //jquery.integrity = "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="; 
+        jquery.crossorigin = "anonymous";
+        document.head.appendChild(jquery);
+        jquery.onload = function () {
+            _on_jquery_load();
+        };
+    };
+
+
+}
+
+function loadQrGen() {
+    document.getElementById("qr").getElementsByClassName("disclaimer")[0].style.display = "none";
+    document.getElementById("qr").getElementsByClassName("qrcode_info")[0].innerHTML = "... Loading ...";
+
+
+    if (!document.location.hash.startsWith("#qr:")) {
+        document.getElementById("qr").classList.remove("target");
+        return;
+    }
+    loading(true);
+
+    $("#qr").addClass("target");
+    console.log("Generate QR");
+
+    if (!isSane(document.location.hash)) {
+        $("#qr .qrcode_info").html("Error, wrong request");
+        loading(false);
+        return;
+    }
+
+    var vars = document.location.hash.substring("#qr:".length);
+    vars = getRequestParams(vars, "$", "!");
+
+    var text = vars["text"];
+    var who = vars["who"];
+
+    if (!who) who = "Someone";
+
+    if (text == undefined) {
+        console.log("text is undefined");
+        $("#qr .qrcode_info").html("Error, wrong request");
+        loading(false);
+    } else {
+        var coin = "coins"
+        var amount = "some";
+        var address = text;
+        var t = text.indexOf("?");
+        if (t != -1) {
+            var payment_params = getRequestParams(text.substring(t + 1));
+            if (payment_params["amount"]) amount = payment_params["amount"];
+        }
+        t = text.indexOf(":");
+        if (t != -1) {
+            coin = text.substring(0, t);
+        }
+        if (t != -1) {
+            address = text.substring(t + 1);
+            t = address.indexOf("?");
+            if (t != -1) address = address.substring(0, t);
+        }
+
+
+
+
+        console.log("who", who, "text", text);
+
+        $("#qr .qrcode_info").html(who + " wants you to send " + amount + " " + coin + " to " + address);
+        var qrcode = $("#qr .qrcode");
+        $("#qr .disclaimer").show();
+
+        qrcode.empty().qrcode({
+            render: 'div',
+            "text": text,
+            fill: '#182028'
+        });
+        loading(false);
+
+    }
+
 }
 
 var _ORIGINAL_TITLE = undefined;
@@ -261,7 +336,7 @@ function main() {
 
     updateTitle();
     loading(false);
-    loadQr();
+    loadQrCodes();
     window.scrollTo(0, 0);   
     
     updateStatus();
@@ -270,7 +345,7 @@ function main() {
         updateTitle();
         loading(false);
         window.scrollTo(0, 0);
-        loadQr();
+        loadQrCodes();
     };
 
 
