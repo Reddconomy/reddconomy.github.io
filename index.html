@@ -42,7 +42,7 @@ header {
 
 nav {
     font-size:1em;
-    top:16em;
+    top:16.1sem;
     
     user-select: none; 
     display:block;
@@ -54,6 +54,10 @@ nav {
     z-index:10;
     pointer-events: auto;
 
+}
+
+nav i {
+    padding-right:0.2em;
 }
 
 header img{
@@ -98,8 +102,8 @@ article{
     z-index:6;
     display:block;
     height:0px;
-   width:80%;
-   margin:auto;
+    width:0px;
+    margin:auto;
     opacity:0;
     transition: opacity .5s;
     -webkit-transition: opacity .5s;
@@ -110,6 +114,7 @@ article{
 }
 
 article:target,article.target{
+    width:80%;
     position:relative;
     visibility: visible;
     height:auto;
@@ -338,9 +343,13 @@ footer .flag{
     vertical-align: middle;
     display: table-cell;
     vertical-align: center;
+}
+
+a.blockchain_addr{
+    display:block;
+    width:100%;
 } </style>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"  rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"    crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
     <script async src="script.js"></script>
 </head>
 <body>
@@ -355,14 +364,13 @@ footer .flag{
     <!-- /Loading -->
     <a href="#About" id="tohome"></a>
     <header> <img src="logo.jpg" title="Reddconomy" alt="Reddconomy" /> </header>
-    <nav> <a href="#About">#About</a><a href="#PublicServers">#PublicServers</a><a target="_blank" href="
-https://github.com/Reddconomy">#GitHub</a><a target="_blank" href="https://www.reddcointalk.org/topic/2412/reddconomy-crypto-economy-for-minecraft-development-preview/">#ReddcoinTalk</a></nav>
+    <nav> <a href="#About">#About</a><a href="#PublicServers">#PublicServers</a><a href="#Contribute">#Contribute</a><a href="#FAQ">#FAQ</a><a target="_blank" href="https://github.com/Reddconomy"><i class="fa fa-github" aria-hidden="true"></i>GitHub</a><a target="_blank" href="https://twitter.com/Reddconomy"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a><a target="_blank" href="https://www.reddcointalk.org/topic/2412/reddconomy-crypto-economy-for-minecraft-development-preview/"><i class="fa fa-comments" aria-hidden="true"></i>ReddcoinTalk</a></nav>
     <article id="About">
 <h1>About</h1>
 
-Reddconomy is a project that brings cryptocurrency into minecraft.
+Reddconomy is a way to use cryptocurrencies for player to player tipping and trading in minecraft.
 <br />
-<span class='underdev'>This project is still under development, we advise not to use it with anything but testnets. </span>
+<span class='underdev'>Reddconomy is still under development, we advise not to use it with anything but testnets. </span>
 <br />
 <div class="disclaimer">
     Reddconomy is an independent project, we are in no way affiliated with Mojang, Microsoft, Reddcoin or anyone else.
@@ -481,7 +489,7 @@ Reddconomy is a project that brings cryptocurrency into minecraft.
      <li>COIN
          <ul>
              <li>*/
-                 <span class='testnet bold'>testnet</span>: The server uses testnet coins. Testnet coins works exactly like real coins but have
+                 <span class='testnet bold'>testnet</span>: The server uses testnet coins. Testnet coins work exactly like real coins but have
                  no value and are usually much easier to obtain.</li>
          </ul>
      </li>
@@ -498,13 +506,13 @@ Reddconomy is a project that brings cryptocurrency into minecraft.
 
       <!-- Server: reddtest.soxa.it:25565 -->
      <tr class='server'>
-         <td>reddtest.soxa.it:25565</td>
+         <td>test.reddconomy.it:25565</td>
          <td>
              <label class='snapshot bold'>SNAPSHOT:</label>
              <a target="_blank" href="http://github.com/Reddconomy/Reddconomy">Reddconomy/master</a>
          </td>
          <td> <span class='test bold'>TEST</span></td>
-         <td>DOGECOIN/<span class='testnet bold'>testnet</span></td>
+         <td>REDDCOIN/<span class='testnet bold'>testnet</span></td>
          <td class='status'> <a href="" title="Can't load status...">[?]</a> </td>
      </tr>
      <tr class='details'> <td colspan=5></td> </tr>
@@ -581,7 +589,145 @@ Reddconomy is a project that brings cryptocurrency into minecraft.
 
  </table>
 
-  <!-- /SERVER LIST --></article><article id="qr">
+  <!-- /SERVER LIST --></article><article id="Contribute">
+<h2>Contribute</h2>
+There are several ways to contribute to Reddconomy
+<section>
+    <h4>Contribute as a Developer</h4>
+    Reddconomy is an opensource project and, as such, everyone can contribute to its code.
+    <br /> If you are a developer, you can check out our
+    <a href="https://github.com/Reddconomy/Reddconomy" target="_blank">github repo</a>
+    and see if there's any issue you want to fix or feature you wish to implement.
+</section>
+<section>
+    <h4>Contribute as a Server Owner</h4>
+    You can configure your server to run Reddconomy on testnet  (Testnet is a version of the blockchain used for testing purposes, its coins are worth nothing in the real world), you'll have your in-game currency while helping us with a real life test
+    scenario.
+    <a href="javascript:alert('WIP');" target="_blank"></a>(see here how)</a>
+    <br /> If you do that, don't forget to
+    <a target="_blank" href="javascript:alert('WIP');"> let us know</a>, and we'll add your server to the
+    <a href="#PublicServers">#PublicServers</a> list.
+</section>
+<section>
+    <h4>Contribute as a Player</h4>
+    You can play in one of the
+    <a href="#PublicServers">testnet servers</a>, experiment with Reddconomy and try to break it, don't forget to report bugs on
+    <a href="https://github.com/Reddconomy/Reddconomy/issues/new"
+        target="_blank">our issue tracker</a>.
+</section>
+<section>
+    <h4>Contribute with a Donation</h4>
+    Reddconomy is designed to be free and will always be.
+    <br /> 
+    We don't need money to work on Reddconomy, we do it because we believe in cryptocurrencies (all of them), 
+    and we wish for mass adoption soon,
+    but if you like our work and you think we deserve some, we do accept
+    donations with the following cryptocurrencies
+    <ul class="donations">
+        <li >Reddcoin:
+            <a class="blockchain_addr" href="reddcoin:RYfhsFZvqwNhUQZbcjMJkD7R5pNuhFcrjE?label=Tip%20To%20Reddconomy">RYfhsFZvqwNhUQZbcjMJkD7R5pNuhFcrjE</a>
+        </li>
+        <li >Dogecoin:
+            <a class="blockchain_addr" href="dogecoin:DCGbXY93KGTC7GeWgbSt6HSW3zvMCvQVdG">DCGbXY93KGTC7GeWgbSt6HSW3zvMCvQVdG</a>
+        </li>
+        <li>Verge:
+            <a class="blockchain_addr" href="verge:D8maTyVj2ghKz2xWYiFCuosEvkEWXVeniL">D8maTyVj2ghKz2xWYiFCuosEvkEWXVeniL</a>
+        </li>
+    </ul>
+</section></article><article id="FAQ">
+
+<h2>FAQ</h2>
+
+<section>
+        <h4>Can i use this with real coins? </h4>
+    Not yet.
+</section>
+
+<section>
+        <h4>What is a testnet? </h4>
+        Testnets are versions of the blockchains used for testing purposes, testnet coins are worthless and very easy to obtain.
+</section>
+       
+ 
+<section>
+    <h4>Who handles the coins? You?</h4>
+    No, we don't handle your coins, when you join a server that uses Reddconomy,
+    all the coins you deposit in it, will go to a wallet handled by the server owner.
+</section>
+    
+           
+<section>
+    <h4>I've found this site [INSERT SITE] that talks about Reddconomy. Is it yours? Is it official? </h4>
+    No and No. Our only official site is Reddconomy.it . 
+    <br />
+    We are on github at <a target="_blank"  href="https://github.com/Reddconomy" >https://github.com/Reddconomy</a>
+    <br />
+    And twitter at <a target="_blank" href="https://twitter.com/Reddconomy" >https://twitter.com/Reddconomy</a>
+    <br />
+    Everything else is not ours.
+</section>
+
+<section>
+        <h4>Does this involve mining?</h4>
+        No.
+</section>
+
+<section>
+        <h4>Is this against the eula?</h4>
+       The eula forbid the server owner from selling items and powerups. 
+       In our original conception, Reddconomy is designed to allow player to player trading, not server to players shops, and, in
+       our understanding, the eula does not explicitly forbid that.
+        <br />
+        However, there might be other country laws and 
+        regulations that you and/or your users must comply, for example the anti money laundering laws.
+        <br />
+        It's your solely responsibility to ensure that you are complying to all the laws you are required to.
+</section>
+
+<section>
+    <h4>So, if I can't sell items, how do I monetize my server? </h4>
+    Reddconomy allows server owners to set fixed or proportional fees for deposits, withdrawals and transactions. 
+    <br />
+    Basically you'll earn from taxation.
+    <br />
+    If you use a coin that rewards for stacking (like reddcoin) you'll also earn staking rewards calculated on the overall sum of every player's deposit.
+</section>
+
+<section>
+        <h4>Is this a fork of [INSERT OTHER PROJECT] </h4>
+     No.
+</section>
+
+<section>
+    <h4>Can I help?</h4>
+     Yes, see <a href="#Contribute">#Contribute</a>
+</section>
+
+<section>
+     <h4>Can I try it?</h4>
+    Yes, just connecto to a test server from  <a href="#PublicServers">this list</a>
+</section>
+
+
+<section>
+    <h4>Do you support only Reddcoin?</h4>
+    No, reddcoin is our main target but we believe that different cryptocurrencies can coexist, just like fiat, 
+ for this reason we will support other coins as well. <br />
+ We are already supporting every coin that has a bitcoind compatible RPC api.
+</section>
+       
+       
+       
+ 
+<section>
+    <h4>How do I run a test server for Reddconomy?</h4>
+    The easiest way: docker.
+    <br />
+    Check out the <a target="_blank" href="https://github.com/Reddconomy/Reddconomy#fastest-way-to-run-the-backend-with-docker">README.md</a>
+</section>
+    
+           
+                 </article><article id="qr">
         <!-- QR GENERATOR -->
 
             <h3>QRCode Generator</h3>
