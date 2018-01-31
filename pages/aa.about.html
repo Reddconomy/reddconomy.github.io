@@ -15,22 +15,22 @@ Reddconomy is a way to use cryptocurrencies for player to player tipping and tra
 <section>
     <h4>Multicoin support</h4>
     Despite being originally developed for
-    <i>reddcoin</i>, Reddconomy is blockchain agnostic, as long as the coin provides a fork of
-    <a href="https://en.bitcoin.it/wiki/Bitcoind" target="_blank">bitcoind</a>
-    or exposes compatible RPC apis, it will simply work without any modification.
-    <br /> If required, a
+    <i>reddcoin</i>, Reddconomy is blockchain agnostic, as long as the coin provides
+    <a href="https://en.bitcoin.it/wiki/Bitcoind" target="_blank">bitcoind</a> compatible RPC apis, 
+    it will simply work without any modification.
+    <br /> For other coins, a new
     <a href="https://github.com/Reddconomy/Reddconomy/blob/master/src/backend/java/it/reddconomy/blockchain/BlockchainConnector.java"
         target="_blank">BlockchainConnector</a>
-    can be implemented for coins that don't belong to the preceding category.
+    can be implemented.
     <video muted autoplay preload='metadata' loop>
         <source src='{URL}/misc/media/webm/info.webm' type='video/webm'> Video:
         <a target="_blank" href="{URL}/misc/media/webm/info.webm">{URL}/misc/media/webm/info.webm</a>
     </video>
 </section>
 <section>
-    <h4>Everything happens Off-chain</h4>
-    Reddconomy works by creating offchain wallets, where coins are virtually moved while still sitting on a single shared wallet,
-    this ensures immediate in-game transactions and requires zero configuration on the player side.
+    <h4>Everything is Off-chain</h4>
+    Reddconomy works by creating offchain wallets, coins are only virtually moved while still sitting on a single shared wallet,
+    this ensures immediate in-game transactions and does not require any configuration on the player side.
     <br
     /> The player can easily deposit or withdraw coins from an offchain wallet.
     <video muted autoplay preload='metadata' loop>
@@ -72,13 +72,13 @@ Reddconomy is a way to use cryptocurrencies for player to player tipping and tra
 
     </video>
     There is another form of
-    <i>Contract Signs</i>, the
-    <i>Temporized Contract Signs</i>, that activate a redstone signal for a specified amount of time.
+    <i>Contract Signs</i>: the
+    <i>Temporized Contract Signs</i>. <br />When enabled, <i>Temporized Contract Signs </i> turns into a redstone torch or block for the specified
+    amount of time
     <video muted autoplay preload='metadata' loop>
         <source src='{URL}/misc/media/webm/temporized_contractsign.webm' type='video/webm'> Video:
         <a target="_blank" href="{URL}/misc/media/webm/temporized_contractsign.webm">{URL}/misc/media/webm/temporized_contractsign.webm</a>
     </video>
-    Or disable themselves for the specified amount of time.
     <video muted autoplay preload='metadata' loop>
         <source src='{URL}/misc/media/webm/temporized_contractsign2.webm' type='video/webm'> Video:
         <a target="_blank" href="{URL}/misc/media/webm/temporized_contractsign2.webm">{URL}/misc/media/webm/temporized_contractsign2.webm</a>
@@ -93,5 +93,5 @@ Reddconomy is a way to use cryptocurrencies for player to player tipping and tra
 
     </video>
 </section>
-<br /> Do you want to try it out? Check the
+<br /> Do you want to try Reddconomy? Check out the
 <a href="#PublicServers">public servers list.</a>
