@@ -381,22 +381,22 @@ Reddconomy is a way to use cryptocurrencies for player to player tipping and tra
 <section>
     <h4>Multicoin support</h4>
     Despite being originally developed for
-    <i>reddcoin</i>, Reddconomy is blockchain agnostic, as long as the coin provides a fork of
-    <a href="https://en.bitcoin.it/wiki/Bitcoind" target="_blank">bitcoind</a>
-    or exposes compatible RPC apis, it will simply work without any modification.
-    <br /> If required, a
+    <i>reddcoin</i>, Reddconomy is blockchain agnostic, as long as the coin provides
+    <a href="https://en.bitcoin.it/wiki/Bitcoind" target="_blank">bitcoind</a> compatible RPC apis, 
+    it will simply work without any modification.
+    <br /> For other coins, a new
     <a href="https://github.com/Reddconomy/Reddconomy/blob/master/src/backend/java/it/reddconomy/blockchain/BlockchainConnector.java"
         target="_blank">BlockchainConnector</a>
-    can be implemented for coins that don't belong to the preceding category.
+    can be implemented.
     <video muted autoplay preload='metadata' loop>
         <source src='https://reddconomy.it/misc/media/webm/info.webm' type='video/webm'> Video:
         <a target="_blank" href="https://reddconomy.it/misc/media/webm/info.webm">https://reddconomy.it/misc/media/webm/info.webm</a>
     </video>
 </section>
 <section>
-    <h4>Everything happens Off-chain</h4>
-    Reddconomy works by creating offchain wallets, where coins are virtually moved while still sitting on a single shared wallet,
-    this ensures immediate in-game transactions and requires zero configuration on the player side.
+    <h4>Everything is Off-chain</h4>
+    Reddconomy works by creating offchain wallets, coins are only virtually moved while still sitting on a single shared wallet,
+    this ensures immediate in-game transactions and does not require any configuration on the player side.
     <br
     /> The player can easily deposit or withdraw coins from an offchain wallet.
     <video muted autoplay preload='metadata' loop>
@@ -438,13 +438,13 @@ Reddconomy is a way to use cryptocurrencies for player to player tipping and tra
 
     </video>
     There is another form of
-    <i>Contract Signs</i>, the
-    <i>Temporized Contract Signs</i>, that activate a redstone signal for a specified amount of time.
+    <i>Contract Signs</i>: the
+    <i>Temporized Contract Signs</i>. <br />When enabled, <i>Temporized Contract Signs </i> turns into a redstone torch or block for the specified
+    amount of time
     <video muted autoplay preload='metadata' loop>
         <source src='https://reddconomy.it/misc/media/webm/temporized_contractsign.webm' type='video/webm'> Video:
         <a target="_blank" href="https://reddconomy.it/misc/media/webm/temporized_contractsign.webm">https://reddconomy.it/misc/media/webm/temporized_contractsign.webm</a>
     </video>
-    Or disable themselves for the specified amount of time.
     <video muted autoplay preload='metadata' loop>
         <source src='https://reddconomy.it/misc/media/webm/temporized_contractsign2.webm' type='video/webm'> Video:
         <a target="_blank" href="https://reddconomy.it/misc/media/webm/temporized_contractsign2.webm">https://reddconomy.it/misc/media/webm/temporized_contractsign2.webm</a>
@@ -459,7 +459,7 @@ Reddconomy is a way to use cryptocurrencies for player to player tipping and tra
 
     </video>
 </section>
-<br /> Do you want to try it out? Check the
+<br /> Do you want to try Reddconomy? Check out the
 <a href="#PublicServers">public servers list.</a></article><article id="PublicServers">
  <!-- SERVER LIST -->
 
@@ -469,29 +469,29 @@ Reddconomy is a way to use cryptocurrencies for player to player tipping and tra
      <li>VERSION
          <ul>
              <li>
-                 <label class='snapshot bold'>SNAPSHOT</label>: The server automatically updates to the latest source code</li>
+                 <label class='snapshot bold'>SNAPSHOT</label>: Server updated to the latest source code</li>
          </ul>
      </li>
      <li>TYPE
          <ul>
              <li>
-                 <span class='debug bold'>DEBUG</span>: Debug servers are temporary servers used to run untested and sometimes unreleased code
-                 and should be considered very unstable</li>
+                 <span class='debug bold'>DEBUG</span>: Temporary server used to run 
+                 untested and often unreleased code. Very unstable.</li>
              <li>
-                 <span class='test bold'>TEST</span>: Test servers are temporary servers used to test reddconomy public releases</li>
-             <li>
-                 <span class='stable bold'>GAME</span>/
-                 <span class='vanilla bold'>vanilla</span>: Normal minecraft servers that use reddconomy.</li>
+                 <span class='test bold'>TEST</span>: Server used to test reddconomy public releases</li>
              <li>
                  <span class='stable bold'>GAME</span>/
-                 <span class='mods bold'>mods</span>: Modded minecraft servers that use reddconomy.</li>
+                 <span class='vanilla bold'>vanilla</span>: Minecraft server which uses reddconomy.</li>
+             <li>
+                 <span class='stable bold'>GAME</span>/
+                 <span class='mods bold'>mods</span>: Modded minecraft server which uses reddconomy.</li>
 
          </ul>
      </li>
      <li>COIN
          <ul>
              <li>*/
-                 <span class='testnet bold'>testnet</span>: The server uses testnet coins. Testnet coins work exactly like real coins but have
+                 <span class='testnet bold'>testnet</span>: Server which uses testnet coins. Testnet coins work exactly like real coins but have
                  no value and are usually much easier to obtain.</li>
          </ul>
      </li>
@@ -652,19 +652,21 @@ There are several ways to contribute to Reddconomy
        
  
 <section>
-    <h4>Who handles the coins? You?</h4>
-    No, we don't handle your coins, when you join a server that uses Reddconomy,
-    all the coins you deposit in it, will go to a wallet handled by the server owner.
+    <h4>Who handles my coins? You? Am i supposed to trust you?</h4>
+    No, we don't handle players' coins. Every server that choose to run Reddconomy
+    will have to setup its own independent  and private wallet, your coins will go there. 
+    <br />
+    In short, you'll have to trust the admin and staff of the server where you play, that are the only responsible
+    to keep your coins safe, not us.
 </section>
-    
            
 <section>
-    <h4>Are you in any way affiliated, endorsed by,associated or officially connected to Mojang, Microsoft, Minecraft, or any of their subsidiaries or their affiliates?</h4>
+    <h4>Are you in any way affiliated, endorsed by, associated or officially connected to Mojang, Microsoft, Minecraft, or any of their subsidiaries or their affiliates?</h4>
     No.
 </section>
      
 <section>
-    <h4>I've found this site [INSERT SITE] that talks about Reddconomy. Is it yours? Is it official? </h4>
+    <h4>I've found this site [INSERT SITE] which talks about Reddconomy. Is it yours? Is it official? </h4>
     No and No. Our only official site is Reddconomy.it . 
     <br />
     We are on github at <a target="_blank"  href="https://github.com/Reddconomy" >https://github.com/Reddconomy</a>
@@ -747,7 +749,7 @@ There are several ways to contribute to Reddconomy
     
             <div class="disclaimer" style="display:none">
                 This is a simple client-side script that converts payment addresses in qr code.
-                <br /> Everything is done client side, we have no control over what is passed and we can't see nor validate it.
+                <br /> Everything is done client side, we have no control over what is passed to this script and we can't see nor validate it.
                 <br
                 /> It is your sole responsability to ensure that the address and qr code are correct.
             </div>
