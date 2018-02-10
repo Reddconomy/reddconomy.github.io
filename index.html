@@ -287,6 +287,20 @@ section h4{
     margin:auto;
 }
 
+#trid {
+    text-align:center;
+}
+
+#trid .copyarea {
+    text-align:center;
+    width:90%;
+    font-family: inherit;
+    font-size: 1em;
+    margin:1em;
+    padding:1em;
+    overflow: auto;
+
+}
 
 .disclaimer{
     margin-top:1em;
@@ -754,6 +768,21 @@ There are several ways to contribute to Reddconomy
                 /> It is your sole responsability to ensure that the address and qr code are correct.
             </div>
                 <!-- /QR GENERATOR -->
+    </article><article id="trid">
+
+            <h3>Transaction ID</h3>
+            <!--
+                https://reddconomy.it/#trid:XXXXX
+             -->
+             <span>Your transaction id is</span>
+             <br />
+             <textarea class="copyarea" disabled>
+
+             </textarea>
+            <div class="disclaimer" >
+                This is a client-side convenience utility used to show the transaction id.
+                <br /> Everything is done client side, we have no control over what is passed to this script and we can't see nor validate it.
+            </div>
     </article>
     <footer> <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/it.svg" alt="it flag" class="flag" /> Copyright (c) 2018 -
 <a href="https://github.com/riccardobl" target="_blank">Riccardo Balbo</a>,

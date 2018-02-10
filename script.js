@@ -275,6 +275,24 @@ function updateTitle(){
     }
 }
 var _VIDEOS = [];
+
+
+function loadTridViewer() {
+
+    if (!document.location.hash.startsWith("#trid:")) {
+        document.getElementById("trid").classList.remove("target");
+        return;
+    } else {
+        var trid = document.location.hash.substring("#trid:".length);
+        var trview = document.getElementById("trid");
+        trview.classList.add("target");
+        if (!isSane(trid)) trid = "Invalid!";
+        console.log("Transaction id", trid);
+        trview.getElementsByClassName("copyarea")[0].value = trid.trim();
+   
+    }
+}
+
 function main() {
    
     var noscripts = document.getElementsByClassName("noscript");
@@ -337,6 +355,7 @@ function main() {
     updateTitle();
     loading(false);
     loadQrCodes();
+    loadTridViewer();
     window.scrollTo(0, 0);   
     
     updateStatus();
@@ -346,6 +365,7 @@ function main() {
         loading(false);
         window.scrollTo(0, 0);
         loadQrCodes();
+        loadTridViewer();
     };
 
 
