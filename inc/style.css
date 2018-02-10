@@ -281,6 +281,20 @@ section h4{
     margin:auto;
 }
 
+#trid {
+    text-align:center;
+}
+
+#trid .copyarea {
+    text-align:center;
+    width:90%;
+    font-family: inherit;
+    font-size: 1em;
+    margin:1em;
+    padding:1em;
+    overflow: auto;
+
+}
 
 .disclaimer{
     margin-top:1em;
