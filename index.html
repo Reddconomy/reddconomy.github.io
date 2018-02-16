@@ -445,7 +445,7 @@ a.blockchain_addr{
     <!-- /Loading -->
     <a href="#About" id="tohome"></a>
     <header> <img src="logo.jpg" title="Reddconomy" alt="Reddconomy" /> </header>
-    <nav> <a href="#About">#About</a><a href="#PublicServers">#PublicServers</a><a href="#Contribute">#Contribute</a><a href="#FAQ">#FAQ</a><a href="#Downloads">#Downloads</a><a target="_blank" href="https://github.com/Reddconomy"><i class="fab fa-github" aria-hidden="true"></i>GitHub</a><a target="_blank" href="https://twitter.com/Reddconomy"><i class="fab fa-twitter" aria-hidden="true"></i>Twitter</a><a target="_blank" href="https://www.reddcointalk.org/topic/2412/reddconomy-crypto-economy-for-minecraft-development-preview/"><i class="fas fa-comments" aria-hidden="true"></i>ReddcoinTalk</a></nav>
+    <nav> <a href="#About">#About</a><a href="#Downloads">#Downloads</a><a href="#PublicServers">#PublicServers</a><a href="#Contribute">#Contribute</a><a href="#FAQ">#FAQ</a><a target="_blank" href="https://github.com/Reddconomy"><i class="fab fa-github" aria-hidden="true"></i>GitHub</a><a target="_blank" href="https://twitter.com/Reddconomy"><i class="fab fa-twitter" aria-hidden="true"></i>Twitter</a><a target="_blank" href="https://www.reddcointalk.org/topic/2412/reddconomy-crypto-economy-for-minecraft-development-preview/"><i class="fas fa-comments" aria-hidden="true"></i>ReddcoinTalk</a></nav>
     <article id="About">
 <h1>About</h1>
 
@@ -541,7 +541,88 @@ Reddconomy is a way to use cryptocurrencies for player to player tipping and tra
     </video>
 </section>
 <br /> Do you want to try Reddconomy? Check out the
-<a href="#PublicServers">public servers list.</a></article><article id="PublicServers">
+<a href="#PublicServers">public servers list.</a></article><article id="Downloads">
+<script>
+    function loadDls() {
+        if (window.location.hash !== "#Downloads") return;
+        // Dev
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var downloads = document.getElementsByClassName("download");
+                for (var i = 0; i < downloads.length; i++) {
+                    var parent = downloads[i];
+                    if (parent.classList.contains("dev") && parent.classList.contains("latest")) {
+                        var dl = parent.getElementsByTagName("a")[0];
+                        var dl_url = dl.getAttribute("dl");
+                        dl_url = dl_url.replace("{VERSION}", this.responseText);
+                        dl.setAttribute("href", dl_url);
+                        //parent.innerHTML="<h5>Latest Dev Snapshot</h5>"+parent.innerHTML;
+                        console.log(dl_url);
+                    }
+                }
+            }
+        };
+        xhttp.open("GET", "https://cors-gate-for-the-internette.frk.wf/https!dl.bintray.com/reddconomy/Reddconomy/Reddconomy_latest.txt", true);
+        xhttp.send();
+
+        //Release
+        //TODO
+    };
+    var dd930ko = window.onhashchange;
+    window.onhashchange = function () {
+        if (dd930ko) dd930ko();
+        loadDls();
+    };
+
+    if (document.readyState !== "loading") {
+        loadDls();
+    } else {
+        document.addEventListener('DOMContentLoaded', function () {
+            loadDls();
+        }, false);
+    }
+</script>
+<h2>Downloads</h2>
+<section id="backend">
+    <h4>Reddconomy Backend</h4>
+    <div class="downloads">
+        <div class="download dev latest">
+            <h5>Latest Dev Snapshot</h5>
+
+            <a href="https://dl.bintray.com/reddconomy/Reddconomy/" dl="https://dl.bintray.com/reddconomy/Reddconomy/Reddconomy-{VERSION}.jar">DOWNLOAD</a>
+        </div>
+    </div>
+</section>
+
+
+<section id="sponge">
+    <h4>Minecraft Sponge plugin</h4>
+    <div class="downloads">
+        <div class="download dev latest">
+            <h5>Latest Dev Snapshot</h5>
+
+            <a href="https://dl.bintray.com/reddconomy/Reddconomy/" dl="https://dl.bintray.com/reddconomy/Reddconomy/Reddconomy-sponge-{VERSION}.jar">DOWNLOAD</a>
+        </div>
+    </div>
+</section>
+
+
+<section id="docker">
+    <h4>Docker containters</h4>
+    <div class="downloads">
+        <div class="download">
+            <h5>Minecraft Sponge (vanilla) + Reddconomy</h5>
+
+            <a href="https://hub.docker.com/r/riccardoblb/reddconomy-sponge/">docker pull riccardoblb/reddconomy-sponge</a>
+        </div>
+        <div class="download">
+            <h5>Test Reddconomy Backend</h5>
+
+            <a href="https://hub.docker.com/r/riccardoblb/reddconomy-backend-testnet/">docker pull riccardoblb/reddconomy-backend-testnet</a>
+        </div>
+    </div>
+</section></article><article id="PublicServers">
  <!-- SERVER LIST -->
 
  <h1>Public Servers</h1>
@@ -817,73 +898,10 @@ There are several ways to contribute to Reddconomy
 </section>
     
            
-                 </article><article id="Downloads">
+                 </article><article id="qr">
 <script>
-    // Dev
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var downloads=document.getElementsByClassName("download");
-            for(var i=0;i<downloads.length;i++){
-                var parent=downloads[i];
-                if(parent.classList.contains("dev")&&parent.classList.contains("latest")){
-                    var dl=parent.getElementsByTagName("a")[0];
-                    var dl_url=dl.getAttribute("dl");
-                    dl_url=dl_url.replace("{VERSION}",this.responseText);
-                    dl.setAttribute("href",dl_url);
-                    //parent.innerHTML="<h5>Latest Dev Snapshot</h5>"+parent.innerHTML;
-                    console.log(dl_url);
-                }
-            }
-        }
-    };
-    xhttp.open("GET", "https://cors-gate-for-the-internette.frk.wf/https!dl.bintray.com/reddconomy/Reddconomy/Reddconomy_latest.txt", true);
-    xhttp.send();
-
-    //Release
-    //TODO
-</script>
-<h2>Downloads</h2>
-<section id="backend">
-    <h4>Reddconomy Backend</h4>
-    <div class="downloads">
-        <div class="download dev latest">
-                <h5>Latest Dev Snapshot</h5>
-
-            <a href="https://dl.bintray.com/reddconomy/Reddconomy/" dl="https://dl.bintray.com/reddconomy/Reddconomy/Reddconomy-{VERSION}.jar" >DOWNLOAD</a>
-        </div>
-     </div>
-</section>
-
-
-<section id="sponge">
-        <h4>Minecraft Sponge plugin</h4>
-        <div class="downloads">
-            <div class="download dev latest">
-                    <h5>Latest Dev Snapshot</h5>
-
-                <a href="https://dl.bintray.com/reddconomy/Reddconomy/"  dl="https://dl.bintray.com/reddconomy/Reddconomy/:Reddconomy-sponge-{VERSION}.jar" >DOWNLOAD</a>
-            </div>
-        </div>
-</section>
     
-
-<section id="docker">
-        <h4>Docker containters</h4>
-        <div class="downloads">
-            <div class="download">
-                    <h5>Minecraft Sponge (vanilla) + Reddconomy</h5>
-
-                <a href="https://hub.docker.com/r/riccardoblb/reddconomy-sponge/" >docker pull riccardoblb/reddconomy-sponge</a>
-            </div>
-            <div class="download">
-                    <h5>Test Reddconomy Backend</h5>
-
-                <a href="https://hub.docker.com/r/riccardoblb/reddconomy-backend-testnet/" >docker pull riccardoblb/reddconomy-backend-testnet</a>
-            </div>
-        </div>
-</section>
-    </article><article id="qr">
+</script>
         <!-- QR GENERATOR -->
 
             <h3>QRCode Generator</h3>
@@ -902,6 +920,41 @@ There are several ways to contribute to Reddconomy
             </div>
                 <!-- /QR GENERATOR -->
     </article><article id="trid">
+<script>
+
+
+function loadTridViewer() {
+
+    if (!document.location.hash.startsWith("#trid:")) {
+        document.getElementById("trid").classList.remove("target");
+        return;
+    } else {
+        var trid = document.location.hash.substring("#trid:".length);
+        var trview = document.getElementById("trid");
+        trview.classList.add("target");
+        if (!isSane(trid)) trid = "Invalid!";
+        console.log("Transaction id", trid);
+        trview.getElementsByClassName("copyarea")[0].value = trid.trim();
+
+    }
+}
+
+
+var sdjidj=window.onhashchange;
+window.onhashchange = function () {
+    if (sdjidj) sdjidj();
+    loadTridViewer();
+};
+
+
+if (document.readyState !== "loading") {
+    loadTridViewer();
+}else {
+    document.addEventListener('DOMContentLoaded', function() {
+        loadTridViewer();
+    }, false);
+}
+</script>
 
             <h3>Transaction ID</h3>
             <!--
