@@ -401,6 +401,13 @@ a.blockchain_addr{
     content:"\f395";
 } 
 
+.downloads .download a.loading::before{
+    content:"\f110"!important;
+    -webkit-animation:a 2s infinite linear;
+    animation:a 2s infinite linear
+} 
+
+
 @-moz-document url-prefix() {
     .downloads .dev a::after{  
        bottom:3.8em;    

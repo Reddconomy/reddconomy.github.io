@@ -1,5 +1,40 @@
 ID=trid;TYPE=page;NAV=hidden
 
+<script>
+
+
+function loadTridViewer() {
+
+    if (!document.location.hash.startsWith("#trid:")) {
+        document.getElementById("trid").classList.remove("target");
+        return;
+    } else {
+        var trid = document.location.hash.substring("#trid:".length);
+        var trview = document.getElementById("trid");
+        trview.classList.add("target");
+        if (!isSane(trid)) trid = "Invalid!";
+        console.log("Transaction id", trid);
+        trview.getElementsByClassName("copyarea")[0].value = trid.trim();
+
+    }
+}
+
+
+var sdjidj=window.onhashchange;
+window.onhashchange = function () {
+    if (sdjidj) sdjidj();
+    loadTridViewer();
+};
+
+
+if (document.readyState !== "loading") {
+    loadTridViewer();
+}else {
+    document.addEventListener('DOMContentLoaded', function() {
+        loadTridViewer();
+    }, false);
+}
+</script>
 
             <h3>Transaction ID</h3>
             <!--
